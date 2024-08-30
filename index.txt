@@ -1,0 +1,16 @@
+-file-exec-and-symbols my_program
+
+-break-insert main
+-break-insert 5
+
+-exec-run
+-exec-next
+
+-thread-info
+
+-thread-list-ids
+
+-thread-select ID
+
+-data-evaluate-expression teste
+
