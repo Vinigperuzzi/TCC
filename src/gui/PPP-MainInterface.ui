@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1109</width>
-    <height>894</height>
+    <width>1278</width>
+    <height>720</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -44,10 +44,10 @@ QPushButton {
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>160</y>
+      <x>1000</x>
+      <y>430</y>
       <width>271</width>
-      <height>551</height>
+      <height>101</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -66,9 +66,105 @@ color:rgb(0, 252, 210);</string>
           <x>0</x>
           <y>0</y>
           <width>269</width>
-          <height>549</height>
+          <height>99</height>
          </rect>
         </property>
+        <widget class="QLabel" name="label_5">
+         <property name="geometry">
+          <rect>
+           <x>90</x>
+           <y>0</y>
+           <width>81</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>List of Threads</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="pushButton_6">
+         <property name="geometry">
+          <rect>
+           <x>60</x>
+           <y>40</y>
+           <width>21</width>
+           <height>24</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:rgb(112, 0, 0);</string>
+         </property>
+         <property name="text">
+          <string>1</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="pushButton_7">
+         <property name="geometry">
+          <rect>
+           <x>90</x>
+           <y>40</y>
+           <width>21</width>
+           <height>24</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:rgb(112, 0, 0);</string>
+         </property>
+         <property name="text">
+          <string>2</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="pushButton_8">
+         <property name="geometry">
+          <rect>
+           <x>120</x>
+           <y>40</y>
+           <width>21</width>
+           <height>24</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:rgb(112, 0, 0);</string>
+         </property>
+         <property name="text">
+          <string>3</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="pushButton_9">
+         <property name="geometry">
+          <rect>
+           <x>150</x>
+           <y>40</y>
+           <width>21</width>
+           <height>24</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:rgb(112, 0, 0);</string>
+         </property>
+         <property name="text">
+          <string>4</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="pushButton_10">
+         <property name="geometry">
+          <rect>
+           <x>180</x>
+           <y>40</y>
+           <width>21</width>
+           <height>24</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:rgb(112, 0, 0);</string>
+         </property>
+         <property name="text">
+          <string>5</string>
+         </property>
+        </widget>
        </widget>
       </widget>
      </item>
@@ -77,10 +173,10 @@ color:rgb(0, 252, 210);</string>
    <widget class="QWidget" name="verticalLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>280</x>
+      <x>10</x>
       <y>60</y>
-      <width>551</width>
-      <height>651</height>
+      <width>971</width>
+      <height>471</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -98,8 +194,8 @@ color:rgb(0, 252, 210);</string>
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>549</width>
-          <height>649</height>
+          <width>969</width>
+          <height>469</height>
          </rect>
         </property>
        </widget>
@@ -110,10 +206,10 @@ color:rgb(0, 252, 210);</string>
    <widget class="QWidget" name="verticalLayoutWidget_3">
     <property name="geometry">
      <rect>
-      <x>839</x>
-      <y>280</y>
+      <x>1000</x>
+      <y>170</y>
       <width>271</width>
-      <height>431</height>
+      <height>241</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -132,9 +228,105 @@ color:rgb(0, 252, 210);</string>
           <x>0</x>
           <y>0</y>
           <width>269</width>
-          <height>429</height>
+          <height>239</height>
          </rect>
         </property>
+        <widget class="QLabel" name="label_4">
+         <property name="geometry">
+          <rect>
+           <x>80</x>
+           <y>0</y>
+           <width>101</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>List of Expressions</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_2">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>30</y>
+           <width>171</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:rgb(70, 0, 5);</string>
+         </property>
+         <property name="text">
+          <string>Teste = 5</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_3">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>50</y>
+           <width>171</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:rgb(70, 0, 5);</string>
+         </property>
+         <property name="text">
+          <string>PID = 10</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_6">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>70</y>
+           <width>171</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:rgb(70, 0, 5);</string>
+         </property>
+         <property name="text">
+          <string>X = null</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_7">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>90</y>
+           <width>171</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:rgb(70, 0, 5);</string>
+         </property>
+         <property name="text">
+          <string>Y = &lt;0x56da76cd&gt;</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_8">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>110</y>
+           <width>171</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:rgb(70, 0, 5);</string>
+         </property>
+         <property name="text">
+          <string>name = &quot;thread&quot;</string>
+         </property>
+        </widget>
        </widget>
       </widget>
      </item>
@@ -143,10 +335,10 @@ color:rgb(0, 252, 210);</string>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>-2</x>
-      <y>715</y>
-      <width>1111</width>
-      <height>141</height>
+      <x>10</x>
+      <y>540</y>
+      <width>1261</width>
+      <height>121</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -159,7 +351,7 @@ color:rgb(0, 252, 210);</string>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>330</x>
+      <x>230</x>
       <y>0</y>
       <width>411</width>
       <height>51</height>
@@ -225,55 +417,13 @@ color:rgb(0, 252, 210);</string>
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="verticalLayoutWidget_4">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>60</y>
-      <width>271</width>
-      <height>81</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_5">
-     <item>
-      <widget class="QFrame" name="frame">
-       <property name="styleSheet">
-        <string notr="true">background-color:rgb(20, 81, 109);
-color:rgb(0, 252, 210);</string>
-       </property>
-       <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
-       </property>
-       <property name="frameShadow">
-        <enum>QFrame::Raised</enum>
-       </property>
-       <widget class="QLabel" name="label_3">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>30</y>
-          <width>251</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">font-size: 35px;</string>
-        </property>
-        <property name="text">
-         <string>List Of Threads</string>
-        </property>
-       </widget>
-      </widget>
-     </item>
-    </layout>
-   </widget>
    <widget class="QFrame" name="frame_2">
     <property name="geometry">
      <rect>
-      <x>840</x>
+      <x>1000</x>
       <y>60</y>
       <width>271</width>
-      <height>201</height>
+      <height>101</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -286,27 +436,11 @@ color:rgb(0, 252, 210);</string>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLabel" name="label_4">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>30</y>
-       <width>241</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font-size: 28px;</string>
-     </property>
-     <property name="text">
-      <string>List of Expressions</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="pushButton">
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>140</y>
+       <y>60</y>
        <width>171</width>
        <height>25</height>
       </rect>
@@ -323,8 +457,8 @@ color:rgb(0, 252, 210);</string>
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>80</y>
-       <width>241</width>
+       <y>10</y>
+       <width>251</width>
        <height>41</height>
       </rect>
      </property>
@@ -341,7 +475,7 @@ font-size:20px;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1109</width>
+     <width>1278</width>
      <height>22</height>
     </rect>
    </property>
