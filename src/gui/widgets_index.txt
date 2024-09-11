@@ -1,0 +1,4 @@
+control_panel -> buttons for debugging commands
+code_frame -> Widget to receive lines from file
+output_terminal -> Terminal where prints and others info may show
+statusbar -> bottom status bar
