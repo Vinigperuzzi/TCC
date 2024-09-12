@@ -1,4 +1,23 @@
 control_panel -> buttons for debugging commands
-code_frame -> Widget to receive lines from file
-output_terminal -> Terminal where prints and others info may show
 statusbar -> bottom status bar
+
+
+
+
+
+my_code_editor -> Widget to receive lines from file
+my_output_terminal -> Terminal where prints and others info may show, it must be inserted as adding to QTextBrowser
+my_data_inspector -> Scroll Area where the variables are show, it must be inserted as Label
+my_thread_list -> Scroll where the thread buttons are show, it must be inserted as QPushButtons
+my_inspect_text -> field where the expression are when the user click for add or remove expression
+
+buttons
+
+my_button_add_br
+my_button_rm_br
+my_button_run
+my_button_continue
+my_button_next
+my_button_step_in
+my_button_finish
+my_button_inspect
