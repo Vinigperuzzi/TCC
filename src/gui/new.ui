@@ -1,0 +1,1101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1280</width>
+    <height>720</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+	background-color:rgb(15, 61, 83);
+}
+
+QFrame {
+	border-style:none;
+}
+
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="0" column="0">
+     <widget class="QFrame" name="frame">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>18</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTextEdit {
+	border-width: 2px;
+    border-style: solid;
+	border-color:rgb(0, 252, 210);
+    border-radius: 6px;
+	background-color: rgb(9, 36, 48);
+	font-size: 14px;
+	color: white;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_3">
+       <item row="0" column="0">
+        <widget class="QFrame" name="frame_3">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>2</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	background-color:rgb(0, 30, 25);
+	color:rgb(0, 252, 210);
+	border-width: 1px;
+    border-style: solid;
+	border-color:rgb(0, 30, 25);
+    border-radius: 4px;
+	border-bottom: 2px solid black;
+	border-right: 2px solid black;
+}
+
+QPushButton:hover {
+	background-color:rgb(0, 15, 12);
+	color:rgb(0, 103, 86);
+}
+
+QPushButton:pressed {
+	background-color:black;
+	color:rgb(0, 90, 75);
+	margin-top:4px;
+}
+
+QFrame {
+	border-width: 1px;
+    border-style: solid;
+	border-color:rgb(0, 252, 210);
+    border-radius: 4px;
+	background-color:rgb(20, 81, 109);
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QFrame" name="frame_4">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>4</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_4">
+             <item>
+              <widget class="QPushButton" name="pushButton_31">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>Add Breakpoint</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_32">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>Remove Breakpoint</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="control_panel">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>4</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_3">
+             <item>
+              <widget class="QPushButton" name="pushButton">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>Run (F1)</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_2">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>Continue (F5)</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_3">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>Next (F6)</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_4">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>Step_in (F7)</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_5">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>Finish (F9)</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="frame_7">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>4</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-style: none;</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QFrame" name="frame_5">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>4</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QFrame {
+	background-color:rgb(0, 30, 25);
+}
+
+QTextBrowser {
+	background-color:rgb(0, 30, 25);
+	color:white;
+	margin-left:15px;
+	border-style:none;
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <widget class="QTextBrowser" name="output_terminal">
+            <property name="html">
+             <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:14px; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Exemplo de saída no stdout&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Outro exemplo de saída no stdout&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Mais um exemplo por que sim&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;valor = 45&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Hello, world!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QTextEdit" name="textEdit">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>13</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>-1</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="html">
+          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:14px; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="tabStopDistance">
+          <double>20.000000000000000</double>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QFrame" name="frame_2">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>5</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <widget class="QFrame" name="frame_6">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>10</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QFrame {
+	background-color:rgb(20, 81, 109);
+}
+
+QLabel {
+	max-height: 40px;
+	min-height: 30px;
+	color:rgb(70, 0, 5);
+	qproperty-alignment: 'AlignCenter';
+}
+
+QScrollArea {
+	border-width: 2px;
+    border-style: solid;
+	border-color:rgb(0, 252, 210);
+    border-radius: 6px;
+}
+
+QWidget {
+	background-color:rgb(20, 81, 109);
+}
+
+QPushButton {
+	background-color:rgb(0, 30, 25);
+	color:rgb(0, 252, 210);
+	border-width: 1px;
+    border-style: solid;
+	border-color:rgb(0, 30, 25);
+    border-radius: 4px;
+	border-bottom: 2px solid black;
+	border-right: 2px solid black;
+}
+
+QPushButton:hover {
+	background-color:rgb(0, 15, 12);
+	color:rgb(0, 103, 86);
+}
+
+QPushButton:pressed {
+	background-color:black;
+	color:rgb(0, 90, 75);
+	margin-top:4px;
+}
+
+QLineEdit {
+	color:rgb(70, 0, 5);
+	background-color:rgb(40, 164, 222);
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item>
+           <widget class="QFrame" name="frame_9">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>3</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_6">
+             <item>
+              <widget class="QLabel" name="label">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color:white;
+font-size: 16px;</string>
+               </property>
+               <property name="text">
+                <string>Data Inspector</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEdit">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_6">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>Inspect</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QScrollArea" name="scrollArea">
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="sizeAdjustPolicy">
+                <enum>QAbstractScrollArea::AdjustIgnored</enum>
+               </property>
+               <property name="widgetResizable">
+                <bool>true</bool>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+               <widget class="QWidget" name="data_inspector">
+                <property name="geometry">
+                 <rect>
+                  <x>0</x>
+                  <y>-21</y>
+                  <width>198</width>
+                  <height>300</height>
+                 </rect>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_7">
+                 <item>
+                  <widget class="QLabel" name="label_2">
+                   <property name="text">
+                    <string>teste: 5</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_3">
+                   <property name="text">
+                    <string>name: &quot;Vinícius&quot;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_4">
+                   <property name="text">
+                    <string>PID: 5</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_5">
+                   <property name="text">
+                    <string>thread_id: 8</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_9">
+                   <property name="text">
+                    <string>MAX_VALUE: 1500</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_6">
+                   <property name="text">
+                    <string>pthread_throw: 4</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_8">
+                   <property name="text">
+                    <string>continue: 1</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_7">
+                   <property name="text">
+                    <string>qtd: 25</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frame_8">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>7</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QFrame {
+	background-color:rgb(20, 81, 109);
+}
+
+QLabel {
+	max-height: 40px;
+	min-height: 30px;
+	color:rgb(70, 0, 5);
+	qproperty-alignment: 'AlignCenter';
+}
+
+QScrollArea {
+	border-width: 2px;
+    border-style: solid;
+	border-color:rgb(0, 252, 210);
+    border-radius: 6px;
+}
+
+QWidget {
+	background-color:rgb(20, 81, 109);
+}
+
+QPushButton {
+	background-color: rgb(70, 0, 5);
+	color:rgb(0, 252, 210);
+	border-width: 1px;
+    border-style: solid;
+	border-color:rgb(0, 30, 25);
+    border-radius: 4px;
+	border-bottom: 2px solid black;
+	border-right: 2px solid black;
+	min-height: 30px;
+}
+
+QPushButton:hover {
+	background-color:rgb(0, 15, 12);
+	color:rgb(0, 103, 86);
+}
+
+QPushButton:pressed {
+	background-color:black;
+	color:rgb(0, 90, 75);
+	margin-top:4px;
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_8">
+          <item>
+           <widget class="QFrame" name="frame_10">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>4</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_9">
+             <item>
+              <widget class="QLabel" name="label_10">
+               <property name="styleSheet">
+                <string notr="true">color: white;
+font-size:16px;</string>
+               </property>
+               <property name="text">
+                <string>Thread List</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QScrollArea" name="thread_scroll">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>21</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="widgetResizable">
+             <bool>true</bool>
+            </property>
+            <widget class="QWidget" name="thread_list">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>216</width>
+               <height>324</height>
+              </rect>
+             </property>
+             <layout class="QGridLayout" name="gridLayout">
+              <item row="1" column="0">
+               <widget class="QPushButton" name="pushButton_10">
+                <property name="text">
+                 <string>4</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QPushButton" name="pushButton_17">
+                <property name="text">
+                 <string>11</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QPushButton" name="pushButton_13">
+                <property name="text">
+                 <string>10</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="2">
+               <widget class="QPushButton" name="pushButton_15">
+                <property name="text">
+                 <string>6</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="0">
+               <widget class="QPushButton" name="pushButton_23">
+                <property name="text">
+                 <string>19</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QPushButton" name="pushButton_11">
+                <property name="text">
+                 <string>7</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="0">
+               <widget class="QPushButton" name="pushButton_19">
+                <property name="text">
+                 <string>13</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QPushButton" name="pushButton_12">
+                <property name="text">
+                 <string>8</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0">
+               <widget class="QPushButton" name="pushButton_22">
+                <property name="text">
+                 <string>16</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QPushButton" name="pushButton_8">
+                <property name="text">
+                 <string>5</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QPushButton" name="pushButton_14">
+                <property name="text">
+                 <string>3</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="2">
+               <widget class="QPushButton" name="pushButton_21">
+                <property name="text">
+                 <string>15</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QPushButton" name="pushButton_9">
+                <property name="text">
+                 <string>2</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="2">
+               <widget class="QPushButton" name="pushButton_16">
+                <property name="text">
+                 <string>9</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <widget class="QPushButton" name="pushButton_20">
+                <property name="text">
+                 <string>14</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="2">
+               <widget class="QPushButton" name="pushButton_18">
+                <property name="text">
+                 <string>12</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QPushButton" name="pushButton_7">
+                <property name="text">
+                 <string>1</string>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="0">
+               <widget class="QPushButton" name="pushButton_24">
+                <property name="text">
+                 <string>22</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="1">
+               <widget class="QPushButton" name="pushButton_25">
+                <property name="text">
+                 <string>17</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="2">
+               <widget class="QPushButton" name="pushButton_26">
+                <property name="text">
+                 <string>18</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="1">
+               <widget class="QPushButton" name="pushButton_27">
+                <property name="text">
+                 <string>20</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="2">
+               <widget class="QPushButton" name="pushButton_28">
+                <property name="text">
+                 <string>21</string>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="1">
+               <widget class="QPushButton" name="pushButton_29">
+                <property name="text">
+                 <string>23</string>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="2">
+               <widget class="QPushButton" name="pushButton_30">
+                <property name="text">
+                 <string>24</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1280</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QMenuBar::item {
+	background-color:rgb(15, 61, 83);
+	color:rgb(0, 252, 210);
+}
+
+QMenuBar::item:hover {
+	background-color:rgb(0, 132, 110);
+	color:rgb(0, 90, 75);
+}
+
+QMenuBar::item:selected {
+	background-color:rgb(0, 132, 110);
+	color:rgb(0, 90, 75);
+}
+
+QMenu::item {
+	background-color:rgb(15, 61, 83);
+	color:rgb(0, 252, 210);
+}
+
+QMenu::item:hover {
+	background-color:rgb(0, 132, 110);
+	color:rgb(0, 90, 75);
+}
+
+QMenu::item:selected {
+	background-color:rgb(0, 132, 110);
+	color:rgb(0, 90, 75);
+}</string>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionNew"/>
+    <addaction name="actionLoad"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionBuild"/>
+   </widget>
+   <widget class="QMenu" name="menuControl">
+    <property name="title">
+     <string>Control</string>
+    </property>
+    <addaction name="actionRun_R"/>
+    <addaction name="actionContinue_1"/>
+    <addaction name="actionNext_2"/>
+    <addaction name="actionStep_In_F"/>
+    <addaction name="actionFinish_F9"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="actionAssembly_Code"/>
+    <addaction name="actionRegister_List"/>
+   </widget>
+   <widget class="QMenu" name="menuTerminal">
+    <property name="title">
+     <string>Terminal</string>
+    </property>
+    <addaction name="actionNew_Terminal"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionCommands"/>
+    <addaction name="actionControls"/>
+    <addaction name="actionAbout"/>
+    <addaction name="actionDocumentation"/>
+   </widget>
+   <widget class="QMenu" name="menuData_Inspector">
+    <property name="title">
+     <string>Data Inspector</string>
+    </property>
+    <addaction name="actionInsert_expression"/>
+    <addaction name="actionRemove_expression"/>
+    <addaction name="actionClear_expression_list"/>
+   </widget>
+   <widget class="QMenu" name="menuBreakpoints">
+    <property name="title">
+     <string>Breakpoints</string>
+    </property>
+    <addaction name="actionAdd_breakpoint_to_line"/>
+    <addaction name="actionRemove_breakpoint_from_selected_line"/>
+    <addaction name="actionInform_breakpoint_position"/>
+    <addaction name="actionRemove_all_breakpoints"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuControl"/>
+   <addaction name="menuBreakpoints"/>
+   <addaction name="menuData_Inspector"/>
+   <addaction name="menuView"/>
+   <addaction name="menuTerminal"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(0, 252, 210);</string>
+   </property>
+  </widget>
+  <action name="actionNew">
+   <property name="text">
+    <string>New</string>
+   </property>
+  </action>
+  <action name="actionLoad">
+   <property name="text">
+    <string>Load</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="actionBuild">
+   <property name="text">
+    <string>Build</string>
+   </property>
+  </action>
+  <action name="actionRun_R">
+   <property name="text">
+    <string>Run (F1)</string>
+   </property>
+  </action>
+  <action name="actionContinue_1">
+   <property name="text">
+    <string>Continue (F5)</string>
+   </property>
+  </action>
+  <action name="actionNext_2">
+   <property name="text">
+    <string>Next (F6)</string>
+   </property>
+  </action>
+  <action name="actionStep_In_F">
+   <property name="text">
+    <string>Step-In (F7)</string>
+   </property>
+  </action>
+  <action name="actionFinish_F9">
+   <property name="text">
+    <string>Finish (F9)</string>
+   </property>
+  </action>
+  <action name="actionAssembly_Code">
+   <property name="text">
+    <string>Assembly Code</string>
+   </property>
+  </action>
+  <action name="actionRegister_List">
+   <property name="text">
+    <string>Register List</string>
+   </property>
+  </action>
+  <action name="actionNew_Terminal">
+   <property name="text">
+    <string>New Terminal</string>
+   </property>
+  </action>
+  <action name="actionCommands">
+   <property name="text">
+    <string>Commands</string>
+   </property>
+  </action>
+  <action name="actionControls">
+   <property name="text">
+    <string>Controls</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionDocumentation">
+   <property name="text">
+    <string>Documentation</string>
+   </property>
+  </action>
+  <action name="actionInsert_expression">
+   <property name="text">
+    <string>Insert expression</string>
+   </property>
+  </action>
+  <action name="actionRemove_expression">
+   <property name="text">
+    <string>Remove expression</string>
+   </property>
+  </action>
+  <action name="actionClear_expression_list">
+   <property name="text">
+    <string>Clear expression list</string>
+   </property>
+  </action>
+  <action name="actionAdd_breakpoint_to_line">
+   <property name="text">
+    <string>Add breakpoint to selected line</string>
+   </property>
+  </action>
+  <action name="actionRemove_breakpoint_from_selected_line">
+   <property name="text">
+    <string>Remove breakpoint from current line</string>
+   </property>
+  </action>
+  <action name="actionInform_breakpoint_position">
+   <property name="text">
+    <string>Inform breakpoint position</string>
+   </property>
+  </action>
+  <action name="actionRemove_all_breakpoints">
+   <property name="text">
+    <string>Remove all breakpoints</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
