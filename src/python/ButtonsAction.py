@@ -1,4 +1,5 @@
 from PySide6.QtCore import Slot
+from PySide6.QtWidgets import QPushButton
 from src.python.Controller import Controller
 
 class ButtonsAction:
