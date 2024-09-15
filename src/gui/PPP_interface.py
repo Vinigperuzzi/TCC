@@ -277,7 +277,7 @@ class Ui_MainWindow(object):
         font = QFont()
         self.my_code_editor.setFont(font)
         self.my_code_editor.setStyleSheet(u"")
-        self.my_code_editor.setTabStopDistance(20.000000000000000)
+        self.my_code_editor.setTabStopDistance(40.000000000000000)
 
         self.gridLayout_3.addWidget(self.my_code_editor, 1, 0, 1, 1)
 
@@ -408,7 +408,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setAlignment(Qt.AlignCenter)
         self.my_data_inspector = QWidget()
         self.my_data_inspector.setObjectName(u"my_data_inspector")
-        self.my_data_inspector.setGeometry(QRect(0, -21, 198, 300))
+        self.my_data_inspector.setGeometry(QRect(0, 0, 198, 300))
         self.verticalLayout_7 = QVBoxLayout(self.my_data_inspector)
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
         self.label_2 = QLabel(self.my_data_inspector)

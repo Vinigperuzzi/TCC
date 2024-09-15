@@ -1,4 +1,5 @@
 from PySide6.QtCore import Slot
+from src.python.Controller import Controller
 
 class ButtonsAction:
     window = None
@@ -76,13 +77,13 @@ class ButtonsAction:
         print("Clicou em New no menu")
 
     def __load(self):
-        print("Clicou em Load no menu")
+        Controller.load_file(ButtonsAction.window)
 
     def __save(self):
-        print("Clicou em Save no menu")
+        Controller.save_file(ButtonsAction.window)
 
     def __build(self):
-        print("Clicou em Build no menu")
+        Controller.build_file(ButtonsAction.window)
 
     #Control
     def __run(self):
