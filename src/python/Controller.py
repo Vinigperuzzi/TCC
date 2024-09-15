@@ -16,6 +16,7 @@ class Controller:
                     file_content = file.read()
                     window.my_code_editor.setPlainText(file_content)
                     Controller.save_file(window)
+                    Controller.build_file(window)
                     file.close()
                     window.statusbar.showMessage("File loaded successfully")
             except Exception as e:
