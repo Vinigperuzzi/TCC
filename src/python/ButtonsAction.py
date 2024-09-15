@@ -80,7 +80,7 @@ class ButtonsAction:
         Controller.load_file(ButtonsAction.window)
 
     def __save(self):
-        print("Clicou em Save no menu")
+        Controller.save_file(ButtonsAction.window)
 
     def __build(self):
         print("Clicou em Build no menu")

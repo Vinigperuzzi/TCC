@@ -331,7 +331,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="tabStopDistance">
-          <double>20.000000000000000</double>
+          <double>40.000000000000000</double>
          </property>
         </widget>
        </item>
@@ -503,7 +503,7 @@ font-size: 16px;</string>
                 <property name="geometry">
                  <rect>
                   <x>0</x>
-                  <y>-21</y>
+                  <y>0</y>
                   <width>198</width>
                   <height>300</height>
                  </rect>
