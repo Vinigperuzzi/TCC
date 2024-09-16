@@ -8,7 +8,7 @@ class GDBMI_Controller:
         self.conn = GdbController()
 
     def load_file(self):
-        gdb_response = self.conn.write("-file-exec-and-symbols code")
+        self.conn.write("-file-exec-and-symbols code")
 
     def set_breakpoint(self, window):
         line = GDBMI_Controller.__get_line_number(window)
