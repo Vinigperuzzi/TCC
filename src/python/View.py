@@ -29,11 +29,23 @@ class View:
             for _ in range(bkpt):
                 cursor.movePosition(QTextCursor.MoveOperation.Down)
 
-            cursor.select(QTextCursor.SelectionType.LineUnderCursor)
+            View.__set_transparency(cursor, window)
 
-            format = QTextCharFormat()
-            format.setBackground(QColor("transparent"))
+    @staticmethod
+    def delete_breakpoint(window, line):
+        cursor = window.my_code_editor.textCursor()
+        cursor.movePosition(QTextCursor.MoveOperation.Start)
+        for _ in range(line):
+            cursor.movePosition(QTextCursor.MoveOperation.Down)
+        
+        View.__set_transparency(cursor, window)
 
-            cursor.mergeCharFormat(format)
+    def __set_transparency(cursor, window):
+        cursor.select(QTextCursor.SelectionType.LineUnderCursor)
 
-            window.my_code_editor.update()
+        format = QTextCharFormat()
+        format.setBackground(QColor("transparent"))
+
+        cursor.mergeCharFormat(format)
+
+        window.my_code_editor.update()

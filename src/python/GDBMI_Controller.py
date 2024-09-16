@@ -1,3 +1,4 @@
+from PySide6.QtGui import QTextCursor
 from pygdbmi.gdbcontroller import GdbController
 from src.python.View import View
 import json
@@ -9,13 +10,25 @@ class GDBMI_Controller:
     def load_file(self):
         gdb_response = self.conn.write("-file-exec-and-symbols code")
 
-    def set_bp_manually(self, text, window):
-        gdb_response = self.conn.write(f"-break-insert {text}")
-        if gdb_response[0]['message'] == "done":
-            window.statusbar.showMessage(f"Breakpoint insertion at line {gdb_response[0]['payload']['bkpt']['line']}")
-            View.update_breakpoints(window, GDBMI_Controller.__get_bkpts_list(self))
+    def set_breakpoint(self, window):
+        line = GDBMI_Controller.__get_line_number(window)
+        line_number = int(line)
+        GDBMI_Controller.__set_breakpoint(self, line_number, window)
+
+
+    def remove_breakpoint(self, window):
+        line = GDBMI_Controller.__get_line_number(window)
+        bkpts_list = GDBMI_Controller.__get_lines_by_number_bkpts(self)
+        bkpt = bkpts_list[line]
+        response = self.conn.write(f"-break-delete {bkpt}")
+        if response[0]['message'] == "done":
+            window.statusbar.showMessage(f"Breakpoint deleted from line {line}")
+            View.delete_breakpoint(window, line)
         else:
-            window.statusbar.showMessage(f"Breakpoint not inserted: {gdb_response[0]['payload']['msg']}")
+            window.statusbar.showMessage(f"Error while trying to delete breakpoint at line {line}")
+
+    def set_bp_manually(self, text, window):
+        GDBMI_Controller.__set_breakpoint(self, text, window)
 
     def remove_all_bkpts(self, window):
         try:
@@ -43,3 +56,24 @@ class GDBMI_Controller:
             value = response[0]['payload']['BreakpointTable']['body'][i]['line']
             array.append(int(value))
         return array
+    
+    def __get_lines_by_number_bkpts(gdbmi):
+        response = gdbmi.conn.write("-break-list")
+        array = {}
+        for i in range(GDBMI_Controller.__get_bkpts_qtd(gdbmi)):
+            line = int(response[0]['payload']['BreakpointTable']['body'][i]['line'])
+            number = int(response[0]['payload']['BreakpointTable']['body'][i]['number'])
+            array[line] = number
+        return array
+    
+    def __get_line_number(window):
+        cursor = window.my_code_editor.textCursor()
+        return cursor.blockNumber() + 1
+    
+    def __set_breakpoint(gdbmi, line, window):
+        gdb_response = gdbmi.conn.write(f"-break-insert {line}")
+        if gdb_response[0]['message'] == "done":
+            window.statusbar.showMessage(f"Breakpoint insertion at line {gdb_response[0]['payload']['bkpt']['line']}")
+            View.update_breakpoints(window, GDBMI_Controller.__get_bkpts_list(gdbmi))
+        else:
+            window.statusbar.showMessage(f"Breakpoint not inserted: {gdb_response[0]['payload']['msg']}")
