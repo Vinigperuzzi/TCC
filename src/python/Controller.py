@@ -106,3 +106,11 @@ class Controller:
     @staticmethod
     def remove_all_bkpt(window):
         Controller.gdbmi.remove_all_bkpts(window)
+
+    @staticmethod
+    def set_breakpoint(window):
+        Controller.gdbmi.set_breakpoint(window)
+
+    @staticmethod
+    def remove_breakpoint(window):
+        Controller.gdbmi.remove_breakpoint(window)

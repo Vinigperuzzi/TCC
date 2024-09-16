@@ -104,10 +104,10 @@ class ButtonsAction:
 
     #breakpoints
     def __add(self):
-        print("Clicou em Add BR no menu")
+        Controller.set_breakpoint(ButtonsAction.window)
 
     def __remove(self):
-        print("Clicou em Remove BR no menu")
+        Controller.remove_breakpoint(ButtonsAction.window)
 
     def __add_2(self):
         Controller.set_breakpoint_manually(ButtonsAction.window)
