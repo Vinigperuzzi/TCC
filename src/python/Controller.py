@@ -1,10 +1,11 @@
 from PySide6.QtWidgets import QLineEdit, QFileDialog, QDialog, QPushButton, QVBoxLayout, QWidget, QLabel
 from PySide6.QtCore import Slot
+from src.python.GDBMI_Controller import GDBMI_Controller
 import subprocess
 
 class Controller:
-
     FILE_TYPES = "*.c"
+    gdbmi = GDBMI_Controller()
 
     @staticmethod
     def load_file(window):
@@ -69,6 +70,39 @@ class Controller:
             response = subprocess.run(command, capture_output=True, text=True)
             if response.returncode == 0:
                 window.statusbar.showMessage("File build successfully named code")
+                Controller.gdbmi.load_file()
             else:
                 window.statusbar.showMessage("Error building file")
         return inner
+    
+    @staticmethod
+    def set_breakpoint_manually(window):
+        Controller.__show_bp_man_modal(window)
+
+    def __show_bp_man_modal(window):
+        modal = QDialog()
+        modal.setWindowTitle("Inform the line or the name of function to insert breakpoint")
+        modal.setGeometry(400, 300, 300, 100)
+
+        text_input = QLineEdit(modal)
+        text_input.setPlaceholderText("1, 2, 15, main...")
+
+        submit_button = QPushButton("Submit", modal)
+        submit_button.clicked.connect(Controller.__submit_bp_manual(text_input, modal, window))
+
+        layout = QVBoxLayout()
+        layout.addWidget(text_input)
+        layout.addWidget(submit_button)
+        modal.setLayout(layout)
+        modal.exec()
+
+    @Slot()
+    def __submit_bp_manual(text, modal, window):
+        def inner():
+            modal.accept()
+            Controller.gdbmi.set_bp_manually(text.text(), window)
+        return inner
+    
+    @staticmethod
+    def remove_all_bkpt(window):
+        Controller.gdbmi.remove_all_bkpts(window)

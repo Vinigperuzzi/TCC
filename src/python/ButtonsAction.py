@@ -1,4 +1,5 @@
 from PySide6.QtCore import Slot
+from PySide6.QtWidgets import QPushButton
 from src.python.Controller import Controller
 
 class ButtonsAction:
@@ -109,10 +110,10 @@ class ButtonsAction:
         print("Clicou em Remove BR no menu")
 
     def __add_2(self):
-        print("Clicou em ADD BR 2 no menu")
+        Controller.set_breakpoint_manually(ButtonsAction.window)
 
     def __remove_all(self):
-        print("Clicou em Remove all no menu")
+        Controller.remove_all_bkpt(ButtonsAction.window)
 
     #data inspector
     def __exp_insert(self):
