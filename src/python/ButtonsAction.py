@@ -113,7 +113,7 @@ class ButtonsAction:
         Controller.set_breakpoint_manually(ButtonsAction.window)
 
     def __remove_all(self):
-        print("Clicou em Remove all no menu")
+        Controller.remove_all_bkpt(ButtonsAction.window)
 
     #data inspector
     def __exp_insert(self):

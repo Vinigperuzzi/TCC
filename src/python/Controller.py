@@ -102,3 +102,7 @@ class Controller:
             modal.accept()
             Controller.gdbmi.set_bp_manually(text.text(), window)
         return inner
+    
+    @staticmethod
+    def remove_all_bkpt(window):
+        Controller.gdbmi.remove_all_bkpts(window)
