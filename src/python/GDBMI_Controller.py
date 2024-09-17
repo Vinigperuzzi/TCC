@@ -2,6 +2,7 @@ from PySide6.QtGui import QTextCursor
 from pygdbmi.gdbcontroller import GdbController
 from src.python.View import View
 import json
+from pprint import pprint
 
 class GDBMI_Controller:
     def __init__(self):
@@ -42,6 +43,21 @@ class GDBMI_Controller:
             window.statusbar.showMessage("There's no breakpoint to be removed")
         except Exception as e:
             window.statusbar.showMessage("An error occurred while trying to remove breakpoints, maybe there's no builded file")
+
+    def send_exec(gdbmi, window, param):
+        response = gdbmi.conn.write(param)
+        #print(f"resposta = \n {response}\n\n\n")
+        pprint(response)
+        print(f"\n\n\n\n\n")
+        try:
+            terminal = gdbmi.conn.get_gdb_response()
+            print(f"terminal = {terminal}\n\n\n")
+        except Exception as e:
+            print(f"Num deu {e}")
+
+    def terminal(gdbmi, text):
+        response = gdbmi.conn.write(text)
+        print(response)
 
 
     def __get_bkpts_qtd(gdbmi):

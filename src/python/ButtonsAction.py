@@ -88,19 +88,19 @@ class ButtonsAction:
 
     #Control
     def __run(self):
-        print("Clicou em Run no menu")
+        Controller.send_exec(ButtonsAction.window, "run")
 
     def __next(self):
-        print("Clicou em Next no menu")
+        Controller.send_exec(ButtonsAction.window, "next")
 
     def __continue(self):
-        print("Clicou em Continue no menu")
+        Controller.send_exec(ButtonsAction.window, "continue")
 
     def __step(self):
-        print("Clicou em Step no menu")
+        Controller.send_exec(ButtonsAction.window, "step")
 
     def __finish(self):
-        print("Clicou em Finish no menu")
+        Controller.send_exec(ButtonsAction.window, "finish")
 
     #breakpoints
     def __add(self):
@@ -155,3 +155,4 @@ class ButtonsAction:
         field.setText("")
         print("Clicou em Inspect no menu")
         print(f"E lá estava o valor de {text}")
+        Controller.terminal(text)
