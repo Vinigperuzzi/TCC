@@ -770,9 +770,9 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.actionNew.setText(QCoreApplication.translate("MainWindow", u"New", None))
-        self.actionLoad.setText(QCoreApplication.translate("MainWindow", u"Load", None))
-        self.actionSave.setText(QCoreApplication.translate("MainWindow", u"Save", None))
-        self.actionBuild.setText(QCoreApplication.translate("MainWindow", u"Build", None))
+        self.actionLoad.setText(QCoreApplication.translate("MainWindow", u"Load (CRTL + L)", None))
+        self.actionSave.setText(QCoreApplication.translate("MainWindow", u"Save (CRTL + S)", None))
+        self.actionBuild.setText(QCoreApplication.translate("MainWindow", u"Build (CRTL + B)", None))
         self.actionRun_R.setText(QCoreApplication.translate("MainWindow", u"Run (F1)", None))
         self.actionContinue_1.setText(QCoreApplication.translate("MainWindow", u"Continue (F5)", None))
         self.actionNext_2.setText(QCoreApplication.translate("MainWindow", u"Next (F6)", None))
