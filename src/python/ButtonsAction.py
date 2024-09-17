@@ -1,5 +1,6 @@
-from PySide6.QtCore import Slot
+from PySide6.QtCore import Slot, Qt
 from PySide6.QtWidgets import QPushButton
+from PySide6.QtGui import QShortcut, QKeySequence
 from src.python.Controller import Controller
 
 class ButtonsAction:
@@ -11,6 +12,7 @@ class ButtonsAction:
         ButtonsAction.__connect_br_buttons()
         ButtonsAction.__connect_control_buttons()
         ButtonsAction.__connect_inspect_button()
+        ButtonsAction.__add_shortcuts()
 
     def __connect_menu_bar():
         ButtonsAction.__connect_menu_file()
@@ -74,85 +76,95 @@ class ButtonsAction:
 
     #Actions
     #File
-    def __new(self):
+    def __new():
         print("Clicou em New no menu")
 
-    def __load(self):
+    def __load():
         Controller.load_file(ButtonsAction.window)
 
-    def __save(self):
+    def __save():
         Controller.save_file(ButtonsAction.window)
 
-    def __build(self):
+    def __build():
         Controller.build_file(ButtonsAction.window)
 
     #Control
-    def __run(self):
+    def __run():
         Controller.send_exec(ButtonsAction.window, "run")
 
-    def __next(self):
+    def __next():
         Controller.send_exec(ButtonsAction.window, "next")
 
-    def __continue(self):
+    def __continue():
         Controller.send_exec(ButtonsAction.window, "continue")
 
-    def __step(self):
+    def __step():
         Controller.send_exec(ButtonsAction.window, "step")
 
-    def __finish(self):
+    def __finish():
         Controller.send_exec(ButtonsAction.window, "finish")
 
     #breakpoints
-    def __add(self):
+    def __add():
         Controller.set_breakpoint(ButtonsAction.window)
 
-    def __remove(self):
+    def __remove():
         Controller.remove_breakpoint(ButtonsAction.window)
 
-    def __add_2(self):
+    def __add_2():
         Controller.set_breakpoint_manually(ButtonsAction.window)
 
-    def __remove_all(self):
+    def __remove_all():
         Controller.remove_all_bkpt(ButtonsAction.window)
 
     #data inspector
-    def __exp_insert(self):
+    def __exp_insert():
         print("Clicou em Insert Expression no menu")
 
-    def __exp_remove(self):
+    def __exp_remove():
         print("Clicou em Remove Expression no menu")
 
-    def __exp_remove_all(self):
+    def __exp_remove_all():
         print("Clicou em Remove All Expressions no menu")
 
     #view
-    def __assembly(self):
+    def __assembly():
         print("Clicou em Assembly no menu")
 
-    def __registers(self):
+    def __registers():
         print("Clicou em Registers no menu")
 
     #terminal
-    def __terminal(self):
+    def __terminal():
         print("Clicou em New Terminal no menu")
 
     #help
-    def __commands(self):
+    def __commands():
         print("Clicou em Commands no menu")
 
-    def __controls(self):
+    def __controls():
         print("Clicou em Controls no menu")
     
-    def __about(self):
+    def __about():
         print("Clicou em About no menu")
 
-    def __documentation(self):
+    def __documentation():
         print("Clicou em Documentation no menu")
 
-    def __inspect(self):
+    def __inspect():
         field = ButtonsAction.window.my_inspect_text
         text = field.text()
         field.setText("")
         print("Clicou em Inspect no menu")
         print(f"E lá estava o valor de {text}")
         Controller.terminal(text)
+
+    def __add_shortcuts():
+        QShortcut(QKeySequence(Qt.Key_F1), ButtonsAction.window).activated.connect(ButtonsAction.__run)
+        QShortcut(QKeySequence(Qt.Key_F5), ButtonsAction.window).activated.connect(ButtonsAction.__continue)
+        QShortcut(QKeySequence(Qt.Key_F6), ButtonsAction.window).activated.connect(ButtonsAction.__next)
+        QShortcut(QKeySequence(Qt.Key_F7), ButtonsAction.window).activated.connect(ButtonsAction.__step)
+        QShortcut(QKeySequence(Qt.Key_F9), ButtonsAction.window).activated.connect(ButtonsAction.__finish)
+        QShortcut(QKeySequence(Qt.CTRL | Qt.Key_S), ButtonsAction.window).activated.connect(ButtonsAction.__save)
+        QShortcut(QKeySequence(Qt.CTRL | Qt.Key_B), ButtonsAction.window).activated.connect(ButtonsAction.__build)
+        QShortcut(QKeySequence(Qt.CTRL | Qt.Key_L), ButtonsAction.window).activated.connect(ButtonsAction.__load)
