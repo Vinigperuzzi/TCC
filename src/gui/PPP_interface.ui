@@ -987,17 +987,17 @@ QMenu::item:selected {
   </action>
   <action name="actionLoad">
    <property name="text">
-    <string>Load</string>
+    <string>Load (CRTL + L)</string>
    </property>
   </action>
   <action name="actionSave">
    <property name="text">
-    <string>Save</string>
+    <string>Save (CRTL + S)</string>
    </property>
   </action>
   <action name="actionBuild">
    <property name="text">
-    <string>Build</string>
+    <string>Build (CRTL + B)</string>
    </property>
   </action>
   <action name="actionRun_R">

@@ -114,3 +114,11 @@ class Controller:
     @staticmethod
     def remove_breakpoint(window):
         Controller.gdbmi.remove_breakpoint(window)
+
+    @staticmethod
+    def send_exec(window, action):
+        Controller.gdbmi.send_exec(window, action)
+
+    @staticmethod
+    def terminal(text):
+        Controller.gdbmi.terminal(text)

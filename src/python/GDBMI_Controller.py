@@ -2,10 +2,13 @@ from PySide6.QtGui import QTextCursor
 from pygdbmi.gdbcontroller import GdbController
 from src.python.View import View
 import json
+from pprint import pprint
+import subprocess
 
 class GDBMI_Controller:
     def __init__(self):
         self.conn = GdbController()
+        self.last_line = None
 
     def load_file(self):
         self.conn.write("-file-exec-and-symbols code")
@@ -43,6 +46,22 @@ class GDBMI_Controller:
         except Exception as e:
             window.statusbar.showMessage("An error occurred while trying to remove breakpoints, maybe there's no builded file")
 
+    def send_exec(gdbmi, window, param):
+        response = gdbmi.conn.write(f"-exec-{param}")
+        GDBMI_Controller.__update_bkpt_line(gdbmi, window)
+
+    def terminal(gdbmi, text):
+        response = gdbmi.conn.write(text)
+        pprint(response)
+
+
+    def __update_bkpt_line(gdbmi, window):
+        response = gdbmi.conn.write("-stack-info-frame")
+        line = int(response[0]['payload']['frame']['line'])
+        View.return_line_pattern(window, gdbmi.last_line)
+        View.update_breakpoints(window, GDBMI_Controller.__get_bkpts_list(gdbmi))
+        gdbmi.last_line = line
+        View.stop_line(window, line)
 
     def __get_bkpts_qtd(gdbmi):
         response = gdbmi.conn.write("-break-list")
