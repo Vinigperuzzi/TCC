@@ -9,7 +9,7 @@ class View:
         cursor = window.my_code_editor.textCursor()
         for bkpt in bkpts:
             cursor.movePosition(QTextCursor.MoveOperation.Start)
-            for _ in range(bkpt):
+            for _ in range(bkpt-1):
                 cursor.movePosition(QTextCursor.MoveOperation.Down)
 
             cursor.select(QTextCursor.SelectionType.LineUnderCursor)
@@ -26,7 +26,7 @@ class View:
         cursor = window.my_code_editor.textCursor()
         for bkpt in View.bkpts:
             cursor.movePosition(QTextCursor.MoveOperation.Start)
-            for _ in range(bkpt):
+            for _ in range(bkpt-1):
                 cursor.movePosition(QTextCursor.MoveOperation.Down)
 
             View.__set_transparency(cursor, window)
@@ -35,7 +35,7 @@ class View:
     def delete_breakpoint(window, line):
         cursor = window.my_code_editor.textCursor()
         cursor.movePosition(QTextCursor.MoveOperation.Start)
-        for _ in range(line):
+        for _ in range(line-1):
             cursor.movePosition(QTextCursor.MoveOperation.Down)
         
         View.__set_transparency(cursor, window)

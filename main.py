@@ -13,4 +13,5 @@ if __name__ == '__main__':
     mainWindow = MainWindow()
     ButtonsAction.set_base_buttons(mainWindow)
     mainWindow.show()
+    #mainWindow.showMaximized()
     app.exec()
