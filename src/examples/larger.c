@@ -20,13 +20,13 @@ float divi(float op1, float op2){
 int main(void){
     while (1)
     {
-        int choice;
+        int choice = 1;
         float result, op1, op2;
         printf("Por favor, indique uma operação:\n");
         printf("[1]. Soma\n[2]. Subtração\n[3]. Multiplicação\n[4]. Divisão\n[5]. Sair\n");
-        scanf("%d", &choice);
+        //scanf("%d", &choice);
         printf("Informe os operandos: ");
-        scanf("%f%f", &op1, &op2);
+        //scanf("%f%f", &op1, &op2);
 
         switch (choice)
         {

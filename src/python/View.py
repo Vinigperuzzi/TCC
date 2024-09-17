@@ -40,6 +40,41 @@ class View:
         
         View.__set_transparency(cursor, window)
 
+    @staticmethod
+    def return_line_pattern(window, line):
+        if not line:
+            return
+        
+        cursor = window.my_code_editor.textCursor()
+        cursor.movePosition(QTextCursor.MoveOperation.Start)
+        for _ in range(line-1):
+            cursor.movePosition(QTextCursor.MoveOperation.Down)
+
+        cursor.select(QTextCursor.SelectionType.LineUnderCursor)
+
+        format = QTextCharFormat()
+        format.setBackground(QColor("transparent"))
+
+        cursor.mergeCharFormat(format)
+
+        window.my_code_editor.update()
+
+    @staticmethod
+    def stop_line(window, line):
+        cursor = window.my_code_editor.textCursor()
+        cursor.movePosition(QTextCursor.MoveOperation.Start)
+        for _ in range(line-1):
+            cursor.movePosition(QTextCursor.MoveOperation.Down)
+
+        cursor.select(QTextCursor.SelectionType.LineUnderCursor)
+
+        format = QTextCharFormat()
+        format.setBackground(QColor("#8a2430"))
+
+        cursor.mergeCharFormat(format)
+
+        window.my_code_editor.update()
+
     def __set_transparency(cursor, window):
         cursor.select(QTextCursor.SelectionType.LineUnderCursor)
 
