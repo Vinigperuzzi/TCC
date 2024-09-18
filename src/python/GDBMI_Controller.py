@@ -52,11 +52,13 @@ class GDBMI_Controller:
         response = gdbmi.conn.write(f"-exec-{param}")
         GDBMI_Controller.__update_bkpt_line(gdbmi, window)
         GDBMI_Controller.update_expressions_list(gdbmi, window)
+        window.statusbar.showMessage(f"Debugging moving on with {param}")
 
     def inspect(gdbmi, window, text):
         if text not in gdbmi.expressions_list:
             gdbmi.expressions_list.append(text)
         GDBMI_Controller.update_expressions_list(gdbmi, window)
+        window.statusbar.showMessage(f"Added expression {text} to inspector")
 
     def update_expressions_list(gdbmi, window):
         GDBMI_Controller.remove_all_expressions(gdbmi, window)
@@ -73,6 +75,13 @@ class GDBMI_Controller:
                 layout = window.my_data_inspector.layout()
                 layout.addWidget(label)
 
+    def remove_one_expression(gdbmi, window, exp):
+        if exp in gdbmi.expressions_list:
+            gdbmi.expressions_list.remove(exp)
+            GDBMI_Controller.update_expressions_list(gdbmi, window)
+            window.statusbar.showMessage(f"removed expression {exp} to inspector")
+        window.statusbar.showMessage(f"There's no expression {exp} to be removed")
+
     def remove_all_expressions(gdbmi, window, from_list=False):
         layout = window.my_data_inspector.layout()
         while layout.count() > 0:
@@ -84,6 +93,7 @@ class GDBMI_Controller:
 
         if from_list:
             gdbmi.expressions_list.clear()
+            window.statusbar.showMessage(f"all expressions removed")
 
 
     def terminal(gdbmi, text):

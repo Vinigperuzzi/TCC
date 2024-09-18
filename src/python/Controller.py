@@ -133,18 +133,29 @@ class Controller:
 
     @staticmethod
     def set_expression_manually(window):
-        Controller.__show_exp_man_modal(window)
+        Controller.__show_exp_man_modal(window, "add")
 
-    def __show_exp_man_modal(window):
+    @staticmethod
+    def remove_expression_manually(window):
+        Controller.__show_exp_man_modal(window, "remove")
+
+    def __show_exp_man_modal(window, type):
         modal = QDialog()
-        modal.setWindowTitle("Inform the expression to be added to inspector")
+        if type == "add":
+            modal.setWindowTitle("Inform the expression to be added to inspector")
+        else:
+             modal.setWindowTitle("Inform the expression to be removed inspector")
+
         modal.setGeometry(400, 300, 300, 100)
 
         text_input = QLineEdit(modal)
         text_input.setPlaceholderText("test, id, i, j...")
 
         submit_button = QPushButton("Submit", modal)
-        submit_button.clicked.connect(Controller.__submit_exp_manual(text_input, modal, window))
+        if type == "add":
+            submit_button.clicked.connect(Controller.__submit_exp_manual(text_input, modal, window))
+        else:
+            submit_button.clicked.connect(Controller.__remove_exp_manual(text_input, modal, window))
 
         layout = QVBoxLayout()
         layout.addWidget(text_input)
@@ -157,6 +168,13 @@ class Controller:
         def inner():
             modal.accept()
             Controller.gdbmi.inspect(window, text.text())
+        return inner
+    
+    @Slot()
+    def __remove_exp_manual(text, modal, window):
+        def inner():
+            modal.accept()
+            Controller.gdbmi.remove_one_expression(window, text.text())
         return inner
 
     @staticmethod

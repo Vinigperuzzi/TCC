@@ -122,7 +122,7 @@ class ButtonsAction:
         Controller.set_expression_manually(ButtonsAction.window)
 
     def __exp_remove():
-        print("Clicou em Remove Expression no menu")
+        Controller.remove_expression_manually(ButtonsAction.window)
 
     def __exp_remove_all():
         Controller.remove_all_expressions(ButtonsAction.window)
