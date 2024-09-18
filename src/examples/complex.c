@@ -3,7 +3,7 @@
 #include <pthread.h>
 #include <stdlib.h>
 #include <sys/syscall.h>
-#define NUM_THREADS 5
+#define NUM_THREADS 25
 
 void *printHello(void *threadid){
     int tid = *(int*)threadid;

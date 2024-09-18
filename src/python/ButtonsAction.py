@@ -13,6 +13,7 @@ class ButtonsAction:
         ButtonsAction.__connect_control_buttons()
         ButtonsAction.__connect_inspect_button()
         ButtonsAction.__add_shortcuts()
+        Controller.remove_all_th_buttons(main_window)
 
     def __connect_menu_bar():
         ButtonsAction.__connect_menu_file()
@@ -136,7 +137,7 @@ class ButtonsAction:
 
     #terminal
     def __terminal():
-        print("Clicou em New Terminal no menu")
+        Controller.terminal("nada")
 
     #help
     def __commands():
