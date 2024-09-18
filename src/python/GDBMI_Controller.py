@@ -1,5 +1,6 @@
 from PySide6.QtGui import QTextCursor
-from PySide6.QtWidgets import QLabel
+from PySide6.QtCore import Slot
+from PySide6.QtWidgets import QLabel, QPushButton
 from pygdbmi.gdbcontroller import GdbController
 from src.python.View import View
 import json
@@ -14,6 +15,7 @@ class GDBMI_Controller:
 
     def load_file(self):
         self.conn.write("-file-exec-and-symbols code")
+
 
     def set_breakpoint(self, window):
         line = GDBMI_Controller.__get_line_number(window)
@@ -53,6 +55,49 @@ class GDBMI_Controller:
         GDBMI_Controller.__update_bkpt_line(gdbmi, window)
         GDBMI_Controller.update_expressions_list(gdbmi, window)
         window.statusbar.showMessage(f"Debugging moving on with {param}")
+        gdbmi.__update_threads(window)
+
+    def __update_threads(gdbmi, window):
+        gdbmi.remove_all_th_buttons(window)
+        response = gdbmi.conn.write("-thread-list-ids")
+        gdbmi.__update_threads_terminal(window, response)
+        th_list = response[0]['payload']['thread-ids']['thread-id']
+        gdbmi.add_th_buttons(window, th_list)
+
+    def __update_threads_terminal(gdbmi, window, response):
+        th_qtd = int(response[0]['payload']['number-of-threads'])
+        current_thread = int(response[0]['payload']['current-thread-id'])
+        text = window.my_output_terminal
+        text.setText(f"Showing the scope of the thread number: {current_thread}\nNumber of current active threads: {th_qtd}")
+        
+    def remove_all_th_buttons(gdbmi, window):
+        layout = window.my_thread_list.layout()
+        while layout.count() > 0:
+            item = layout.takeAt(0)
+
+            widget = item.widget()
+            if widget is not None:
+                widget.deleteLater()
+
+
+    def add_th_buttons(gdbmi, window, th_list):
+        layout = window.my_thread_list.layout()
+        for th in th_list:
+            button = QPushButton(th)
+            layout.addWidget(button)
+            button.clicked.connect(gdbmi.change_thread(int(th), window))
+    
+
+    @Slot()
+    def change_thread(self, thread_id, window):
+        def inner():
+            self.conn.write(f"-thread-select {thread_id}")
+            response = self.conn.write("-thread-list-ids")
+            self.__update_threads_terminal(window, response)
+            self.update_expressions_list(window)
+            self.__update_bkpt_line(window)
+        return inner
+
 
     def inspect(gdbmi, window, text):
         if text not in gdbmi.expressions_list:
@@ -96,7 +141,7 @@ class GDBMI_Controller:
             window.statusbar.showMessage(f"all expressions removed")
 
 
-    def terminal(gdbmi, text):
+    def terminal(gdbmi, text=None):
         response = gdbmi.conn.write(text)
         pprint(response)
 

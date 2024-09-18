@@ -180,3 +180,7 @@ class Controller:
     @staticmethod
     def terminal(text):
         Controller.gdbmi.terminal(text)
+
+    @staticmethod
+    def remove_all_th_buttons(window):
+        Controller.gdbmi.remove_all_th_buttons(window)
