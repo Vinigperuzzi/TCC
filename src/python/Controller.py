@@ -127,5 +127,9 @@ class Controller:
         Controller.gdbmi.inspect(window, text)
 
     @staticmethod
+    def remove_all_expressions(window):
+        Controller.gdbmi.remove_all_expressions(window, True)
+
+    @staticmethod
     def terminal(text):
         Controller.gdbmi.terminal(text)

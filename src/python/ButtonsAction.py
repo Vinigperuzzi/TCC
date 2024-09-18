@@ -125,7 +125,7 @@ class ButtonsAction:
         print("Clicou em Remove Expression no menu")
 
     def __exp_remove_all():
-        print("Clicou em Remove All Expressions no menu")
+        Controller.remove_all_expressions(ButtonsAction.window)
 
     #view
     def __assembly():
