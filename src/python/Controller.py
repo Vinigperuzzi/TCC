@@ -120,5 +120,12 @@ class Controller:
         Controller.gdbmi.send_exec(window, action)
 
     @staticmethod
+    def inspect(window):
+        field = window.my_inspect_text
+        text = field.text()
+        field.setText("")
+        Controller.gdbmi.inspect(window, text)
+
+    @staticmethod
     def terminal(text):
         Controller.gdbmi.terminal(text)

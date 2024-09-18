@@ -1,4 +1,5 @@
 from PySide6.QtGui import QTextCursor
+from PySide6.QtWidgets import QLabel
 from pygdbmi.gdbcontroller import GdbController
 from src.python.View import View
 import json
@@ -9,6 +10,7 @@ class GDBMI_Controller:
     def __init__(self):
         self.conn = GdbController()
         self.last_line = None
+        self.expressions_list = []
 
     def load_file(self):
         self.conn.write("-file-exec-and-symbols code")
@@ -49,6 +51,11 @@ class GDBMI_Controller:
     def send_exec(gdbmi, window, param):
         response = gdbmi.conn.write(f"-exec-{param}")
         GDBMI_Controller.__update_bkpt_line(gdbmi, window)
+
+    def inspect(gdbmi, window, text):
+        if text not in gdbmi.expressions_list:
+            gdbmi.expressions_list.append(text)
+        GDBMI_Controller.__update_expressions_list(gdbmi, window)
 
     def terminal(gdbmi, text):
         response = gdbmi.conn.write(text)
@@ -96,3 +103,30 @@ class GDBMI_Controller:
             View.update_breakpoints(window, GDBMI_Controller.__get_bkpts_list(gdbmi))
         else:
             window.statusbar.showMessage(f"Breakpoint not inserted: {gdb_response[0]['payload']['msg']}")
+
+    def __update_expressions_list(gdbmi, window):
+        GDBMI_Controller.__remove_all_expressions(gdbmi, window)
+        for text in gdbmi.expressions_list:
+            response = gdbmi.conn.write(f"-data-evaluate-expression {text}")
+            try:
+                value = response[0]['payload']['value']
+
+            except Exception as e:
+                value = "No data"
+
+            finally:
+                label = QLabel(f"{text}: {value}")
+                layout = window.my_data_inspector.layout()
+                layout.addWidget(label)
+
+    def __remove_all_expressions(gdbmi, window, from_list=False):
+        layout = window.my_data_inspector.layout()
+        while layout.count() > 0:
+            item = layout.takeAt(0)
+
+            widget = item.widget()
+            if widget is not None:
+                widget.deleteLater()
+
+        if from_list:
+            gdbmi.expressions_list.clear()

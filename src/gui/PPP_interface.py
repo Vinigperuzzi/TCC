@@ -408,49 +408,9 @@ class Ui_MainWindow(object):
         self.scrollArea.setAlignment(Qt.AlignCenter)
         self.my_data_inspector = QWidget()
         self.my_data_inspector.setObjectName(u"my_data_inspector")
-        self.my_data_inspector.setGeometry(QRect(0, 0, 198, 300))
+        self.my_data_inspector.setGeometry(QRect(0, 0, 215, 245))
         self.verticalLayout_7 = QVBoxLayout(self.my_data_inspector)
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
-        self.label_2 = QLabel(self.my_data_inspector)
-        self.label_2.setObjectName(u"label_2")
-
-        self.verticalLayout_7.addWidget(self.label_2)
-
-        self.label_3 = QLabel(self.my_data_inspector)
-        self.label_3.setObjectName(u"label_3")
-
-        self.verticalLayout_7.addWidget(self.label_3)
-
-        self.label_4 = QLabel(self.my_data_inspector)
-        self.label_4.setObjectName(u"label_4")
-
-        self.verticalLayout_7.addWidget(self.label_4)
-
-        self.label_5 = QLabel(self.my_data_inspector)
-        self.label_5.setObjectName(u"label_5")
-
-        self.verticalLayout_7.addWidget(self.label_5)
-
-        self.label_9 = QLabel(self.my_data_inspector)
-        self.label_9.setObjectName(u"label_9")
-
-        self.verticalLayout_7.addWidget(self.label_9)
-
-        self.label_6 = QLabel(self.my_data_inspector)
-        self.label_6.setObjectName(u"label_6")
-
-        self.verticalLayout_7.addWidget(self.label_6)
-
-        self.label_8 = QLabel(self.my_data_inspector)
-        self.label_8.setObjectName(u"label_8")
-
-        self.verticalLayout_7.addWidget(self.label_8)
-
-        self.label_7 = QLabel(self.my_data_inspector)
-        self.label_7.setObjectName(u"label_7")
-
-        self.verticalLayout_7.addWidget(self.label_7)
-
         self.scrollArea.setWidget(self.my_data_inspector)
 
         self.verticalLayout_6.addWidget(self.scrollArea)
@@ -823,14 +783,6 @@ class Ui_MainWindow(object):
         self.label.setText(QCoreApplication.translate("MainWindow", u"Data Inspector", None))
         self.my_inspect_text.setText("")
         self.my_button_inspect.setText(QCoreApplication.translate("MainWindow", u"Inspect", None))
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u"teste: 5", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"name: \"Vin\u00edcius\"", None))
-        self.label_4.setText(QCoreApplication.translate("MainWindow", u"PID: 5", None))
-        self.label_5.setText(QCoreApplication.translate("MainWindow", u"thread_id: 8", None))
-        self.label_9.setText(QCoreApplication.translate("MainWindow", u"MAX_VALUE: 1500", None))
-        self.label_6.setText(QCoreApplication.translate("MainWindow", u"pthread_throw: 4", None))
-        self.label_8.setText(QCoreApplication.translate("MainWindow", u"continue: 1", None))
-        self.label_7.setText(QCoreApplication.translate("MainWindow", u"qtd: 25", None))
         self.label_10.setText(QCoreApplication.translate("MainWindow", u"Thread List", None))
         self.pushButton_10.setText(QCoreApplication.translate("MainWindow", u"4", None))
         self.pushButton_17.setText(QCoreApplication.translate("MainWindow", u"11", None))

@@ -152,12 +152,8 @@ class ButtonsAction:
         print("Clicou em Documentation no menu")
 
     def __inspect():
-        field = ButtonsAction.window.my_inspect_text
-        text = field.text()
-        field.setText("")
-        print("Clicou em Inspect no menu")
-        print(f"E lá estava o valor de {text}")
-        Controller.terminal(text)
+        Controller.inspect(ButtonsAction.window)
+        #Controller.terminal(text)
 
     def __add_shortcuts():
         QShortcut(QKeySequence(Qt.Key_F1), ButtonsAction.window).activated.connect(ButtonsAction.__run)
