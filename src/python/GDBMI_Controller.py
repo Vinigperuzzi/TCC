@@ -1,4 +1,5 @@
 from PySide6.QtGui import QTextCursor
+from PySide6.QtWidgets import QLabel
 from pygdbmi.gdbcontroller import GdbController
 from src.python.View import View
 import json
@@ -9,6 +10,7 @@ class GDBMI_Controller:
     def __init__(self):
         self.conn = GdbController()
         self.last_line = None
+        self.expressions_list = []
 
     def load_file(self):
         self.conn.write("-file-exec-and-symbols code")
@@ -49,6 +51,50 @@ class GDBMI_Controller:
     def send_exec(gdbmi, window, param):
         response = gdbmi.conn.write(f"-exec-{param}")
         GDBMI_Controller.__update_bkpt_line(gdbmi, window)
+        GDBMI_Controller.update_expressions_list(gdbmi, window)
+        window.statusbar.showMessage(f"Debugging moving on with {param}")
+
+    def inspect(gdbmi, window, text):
+        if text not in gdbmi.expressions_list:
+            gdbmi.expressions_list.append(text)
+        GDBMI_Controller.update_expressions_list(gdbmi, window)
+        window.statusbar.showMessage(f"Added expression {text} to inspector")
+
+    def update_expressions_list(gdbmi, window):
+        GDBMI_Controller.remove_all_expressions(gdbmi, window)
+        for text in gdbmi.expressions_list:
+            response = gdbmi.conn.write(f"-data-evaluate-expression {text}")
+            try:
+                value = response[0]['payload']['value']
+
+            except Exception as e:
+                value = "No data"
+
+            finally:
+                label = QLabel(f"{text}: {value}")
+                layout = window.my_data_inspector.layout()
+                layout.addWidget(label)
+
+    def remove_one_expression(gdbmi, window, exp):
+        if exp in gdbmi.expressions_list:
+            gdbmi.expressions_list.remove(exp)
+            GDBMI_Controller.update_expressions_list(gdbmi, window)
+            window.statusbar.showMessage(f"removed expression {exp} to inspector")
+        window.statusbar.showMessage(f"There's no expression {exp} to be removed")
+
+    def remove_all_expressions(gdbmi, window, from_list=False):
+        layout = window.my_data_inspector.layout()
+        while layout.count() > 0:
+            item = layout.takeAt(0)
+
+            widget = item.widget()
+            if widget is not None:
+                widget.deleteLater()
+
+        if from_list:
+            gdbmi.expressions_list.clear()
+            window.statusbar.showMessage(f"all expressions removed")
+
 
     def terminal(gdbmi, text):
         response = gdbmi.conn.write(text)

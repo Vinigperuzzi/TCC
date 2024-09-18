@@ -119,13 +119,13 @@ class ButtonsAction:
 
     #data inspector
     def __exp_insert():
-        print("Clicou em Insert Expression no menu")
+        Controller.set_expression_manually(ButtonsAction.window)
 
     def __exp_remove():
-        print("Clicou em Remove Expression no menu")
+        Controller.remove_expression_manually(ButtonsAction.window)
 
     def __exp_remove_all():
-        print("Clicou em Remove All Expressions no menu")
+        Controller.remove_all_expressions(ButtonsAction.window)
 
     #view
     def __assembly():
@@ -152,12 +152,8 @@ class ButtonsAction:
         print("Clicou em Documentation no menu")
 
     def __inspect():
-        field = ButtonsAction.window.my_inspect_text
-        text = field.text()
-        field.setText("")
-        print("Clicou em Inspect no menu")
-        print(f"E lá estava o valor de {text}")
-        Controller.terminal(text)
+        Controller.inspect(ButtonsAction.window)
+        #Controller.terminal(text)
 
     def __add_shortcuts():
         QShortcut(QKeySequence(Qt.Key_F1), ButtonsAction.window).activated.connect(ButtonsAction.__run)
