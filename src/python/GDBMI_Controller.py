@@ -51,6 +51,7 @@ class GDBMI_Controller:
     def send_exec(gdbmi, window, param):
         response = gdbmi.conn.write(f"-exec-{param}")
         GDBMI_Controller.__update_bkpt_line(gdbmi, window)
+        GDBMI_Controller.update_expressions_list(gdbmi, window)
 
     def inspect(gdbmi, window, text):
         if text not in gdbmi.expressions_list:
@@ -83,6 +84,7 @@ class GDBMI_Controller:
 
         if from_list:
             gdbmi.expressions_list.clear()
+
 
     def terminal(gdbmi, text):
         response = gdbmi.conn.write(text)

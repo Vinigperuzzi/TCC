@@ -40,6 +40,7 @@ class Controller:
     @staticmethod
     def build_file(window):
         Controller.__show_build_modal(window)
+        GDBMI_Controller.update_expressions_list(Controller.gdbmi, window)
 
     def __show_build_modal(window):
         modal = QDialog()
@@ -129,6 +130,34 @@ class Controller:
     @staticmethod
     def remove_all_expressions(window):
         Controller.gdbmi.remove_all_expressions(window, True)
+
+    @staticmethod
+    def set_expression_manually(window):
+        Controller.__show_exp_man_modal(window)
+
+    def __show_exp_man_modal(window):
+        modal = QDialog()
+        modal.setWindowTitle("Inform the expression to be added to inspector")
+        modal.setGeometry(400, 300, 300, 100)
+
+        text_input = QLineEdit(modal)
+        text_input.setPlaceholderText("test, id, i, j...")
+
+        submit_button = QPushButton("Submit", modal)
+        submit_button.clicked.connect(Controller.__submit_exp_manual(text_input, modal, window))
+
+        layout = QVBoxLayout()
+        layout.addWidget(text_input)
+        layout.addWidget(submit_button)
+        modal.setLayout(layout)
+        modal.exec()
+
+    @Slot()
+    def __submit_exp_manual(text, modal, window):
+        def inner():
+            modal.accept()
+            Controller.gdbmi.inspect(window, text.text())
+        return inner
 
     @staticmethod
     def terminal(text):

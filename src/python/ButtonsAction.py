@@ -119,7 +119,7 @@ class ButtonsAction:
 
     #data inspector
     def __exp_insert():
-        print("Clicou em Insert Expression no menu")
+        Controller.set_expression_manually(ButtonsAction.window)
 
     def __exp_remove():
         print("Clicou em Remove Expression no menu")
