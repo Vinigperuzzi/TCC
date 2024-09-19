@@ -141,10 +141,10 @@ class ButtonsAction:
 
     #help
     def __commands():
-        print("Clicou em Commands no menu")
+        Controller.show_help_command(ButtonsAction.window)
 
     def __controls():
-        print("Clicou em Controls no menu")
+        Controller.show_help_control(ButtonsAction.window)
     
     def __about():
         print("Clicou em About no menu")

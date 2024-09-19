@@ -2,6 +2,8 @@ from PySide6.QtWidgets import QMainWindow, QLineEdit, QFileDialog, QDialog, QPus
 from PySide6.QtCore import Slot
 from src.python.GDBMI_Controller import GDBMI_Controller
 import subprocess
+from src.gui.PPP_commands import Ui_Form as UI_Command
+from src.gui.PPP_controls import Ui_Form as UI_Control
 
 class Controller:
     FILE_TYPES = "*.c"
@@ -217,3 +219,27 @@ class Controller:
     @staticmethod
     def remove_all_th_buttons(window):
         Controller.gdbmi.remove_all_th_buttons(window)
+
+    @staticmethod
+    def show_help_command(window):
+        class CommandWindow(QWidget, UI_Command):
+            def __init__(self, parent=None):
+                super().__init__(parent)
+                self.setupUi(self)
+                self.setWindowTitle("GDBMI commands")
+                self.closeButton.clicked.connect(self.close)
+
+        command = CommandWindow(window)
+        command.show()
+
+    @staticmethod
+    def show_help_control(window):
+        class ControlWindow(QWidget, UI_Control):
+            def __init__(self, parent=None):
+                super().__init__(parent)
+                self.setupUi(self)
+                self.setWindowTitle("PPP Debugger controls")
+                self.closeButton.clicked.connect(self.close)
+
+        control = ControlWindow(window)
+        control.show()
