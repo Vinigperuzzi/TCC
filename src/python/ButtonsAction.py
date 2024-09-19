@@ -8,12 +8,14 @@ class ButtonsAction:
     @staticmethod
     def set_base_buttons(main_window):
         ButtonsAction.window = main_window
+        has_GDB = Controller.check_GDB(main_window)
         ButtonsAction.__connect_menu_bar()
         ButtonsAction.__connect_br_buttons()
         ButtonsAction.__connect_control_buttons()
         ButtonsAction.__connect_inspect_button()
         ButtonsAction.__add_shortcuts()
-        Controller.remove_all_th_buttons(main_window)
+        if has_GDB:
+            Controller.remove_all_th_buttons(main_window)
 
     def __connect_menu_bar():
         ButtonsAction.__connect_menu_file()

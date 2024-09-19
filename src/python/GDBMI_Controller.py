@@ -28,9 +28,7 @@ class GDBMI_Controller:
         format = QTextCharFormat()
         format.setBackground(QColor("transparent"))
 
-        response = self.conn.write("kill")
-
-        pprint(response)
+        self.conn.write("kill")
 
     def load_file(self):
         self.conn.write("-file-exec-and-symbols code")
@@ -167,6 +165,7 @@ class GDBMI_Controller:
         pprint(response, stream=buffer)
         terminal_text = buffer.getvalue()
         text.setText(terminal_text)
+        gdbmi.update_expressions_list(window)
 
 
     def __update_bkpt_line(gdbmi, window):

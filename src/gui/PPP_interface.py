@@ -400,6 +400,11 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_6.addWidget(self.my_button_inspect)
 
+        self.my_change_value = QPushButton(self.frame_9)
+        self.my_change_value.setObjectName(u"my_change_value")
+
+        self.verticalLayout_6.addWidget(self.my_change_value)
+
         self.scrollArea = QScrollArea(self.frame_9)
         self.scrollArea.setObjectName(u"scrollArea")
         self.scrollArea.setStyleSheet(u"")
@@ -408,7 +413,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setAlignment(Qt.AlignCenter)
         self.my_data_inspector = QWidget()
         self.my_data_inspector.setObjectName(u"my_data_inspector")
-        self.my_data_inspector.setGeometry(QRect(0, 0, 215, 245))
+        self.my_data_inspector.setGeometry(QRect(0, 0, 215, 220))
         self.verticalLayout_7 = QVBoxLayout(self.my_data_inspector)
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
         self.scrollArea.setWidget(self.my_data_inspector)
@@ -778,6 +783,7 @@ class Ui_MainWindow(object):
         self.label.setText(QCoreApplication.translate("MainWindow", u"Data Inspector", None))
         self.my_inspect_text.setText("")
         self.my_button_inspect.setText(QCoreApplication.translate("MainWindow", u"Inspect", None))
+        self.my_change_value.setText(QCoreApplication.translate("MainWindow", u"Change Value", None))
         self.label_10.setText(QCoreApplication.translate("MainWindow", u"Thread List", None))
         self.pushButton_10.setText(QCoreApplication.translate("MainWindow", u"4", None))
         self.pushButton_17.setText(QCoreApplication.translate("MainWindow", u"11", None))

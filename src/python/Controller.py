@@ -8,7 +8,20 @@ from src.gui.PPP_controls import Ui_Form as UI_Control
 
 class Controller:
     FILE_TYPES = "*.c"
-    gdbmi = GDBMI_Controller()
+    no_gdb = None
+    try:
+        gdbmi = GDBMI_Controller()
+    except:
+        no_gdb = True
+
+    @staticmethod
+    def check_GDB(window):
+        if Controller.no_gdb:
+            window.my_code_editor.setPlainText("\n\n\t\t\tALERT: There's is no GDB installed on this system, please, note that GDB must be installed in order to run this application")
+            window.my_output_terminal.setText("Error: GDB not installed, failed to connect to GDB")
+            window.statusbar.showMessage("Error trying to connect to GDB")
+            return False
+        return True
 
     @staticmethod
     def new(window):

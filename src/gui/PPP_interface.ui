@@ -482,6 +482,13 @@ font-size: 16px;</string>
               </widget>
              </item>
              <item>
+              <widget class="QPushButton" name="my_change_value">
+               <property name="text">
+                <string>Change Value</string>
+               </property>
+              </widget>
+             </item>
+             <item>
               <widget class="QScrollArea" name="scrollArea">
                <property name="styleSheet">
                 <string notr="true"/>
@@ -501,7 +508,7 @@ font-size: 16px;</string>
                   <x>0</x>
                   <y>0</y>
                   <width>215</width>
-                  <height>245</height>
+                  <height>220</height>
                  </rect>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_7"/>
