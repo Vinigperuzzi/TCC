@@ -117,10 +117,21 @@ class GDBMI_Controller:
 
 
     def inspect(gdbmi, window, text):
-        if text not in gdbmi.expressions_list:
-            gdbmi.expressions_list.append(text)
-        GDBMI_Controller.update_expressions_list(gdbmi, window)
-        window.statusbar.showMessage(f"Added expression {text} to inspector")
+        elements = text.split()
+
+        if len(elements) == 1:
+            if text not in gdbmi.expressions_list:
+                gdbmi.expressions_list.append(text)
+                GDBMI_Controller.update_expressions_list(gdbmi, window)
+                window.statusbar.showMessage(f"Added expression {text} to inspector")
+            window.statusbar.showMessage(f"Expression {text} are already in inspector")
+        elif len(elements) == 3 and elements[1] == "=" and elements[0] in gdbmi.expressions_list:
+            gdbmi.conn.write(f"set var {elements[0]} = {elements[2]}")
+            GDBMI_Controller.update_expressions_list(gdbmi, window)
+            window.statusbar.showMessage(f"Change the value of expression {elements[0]}")
+        else:
+            window.statusbar.showMessage("Wrong syntax, try again")
+        
 
     def update_expressions_list(gdbmi, window):
         GDBMI_Controller.remove_all_expressions(gdbmi, window)

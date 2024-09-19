@@ -39,6 +39,7 @@ class ButtonsAction:
 
     def __connect_inspect_button():
         ButtonsAction.window.my_button_inspect.clicked.connect(ButtonsAction.__inspect)
+        ButtonsAction.window.my_change_value.clicked.connect(ButtonsAction.__inspect)
 
     def __connect_menu_file():
         ButtonsAction.window.actionNew.triggered.connect(ButtonsAction.__new)
