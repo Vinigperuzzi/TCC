@@ -1,4 +1,4 @@
-from PySide6.QtGui import QTextCursor
+from PySide6.QtGui import QTextCursor, QTextCharFormat, QColor
 from PySide6.QtCore import Slot
 from PySide6.QtWidgets import QLabel, QPushButton
 from pygdbmi.gdbcontroller import GdbController
@@ -13,6 +13,24 @@ class GDBMI_Controller:
         self.conn = GdbController()
         self.last_line = None
         self.expressions_list = []
+
+    def new(self, window):
+        self.remove_all_th_buttons(window)
+        self.remove_all_expressions(window, True)
+        text = window.my_output_terminal
+        text.setText("")
+        self.remove_all_bkpts(window)
+
+        window.my_code_editor.setPlainText("")
+        cursor = window.my_code_editor.textCursor()
+        cursor.movePosition(QTextCursor.MoveOperation.Start)
+        cursor.select(QTextCursor.SelectionType.LineUnderCursor)
+        format = QTextCharFormat()
+        format.setBackground(QColor("transparent"))
+
+        response = self.conn.write("kill")
+
+        pprint(response)
 
     def load_file(self):
         self.conn.write("-file-exec-and-symbols code")

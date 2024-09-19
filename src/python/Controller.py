@@ -11,6 +11,10 @@ class Controller:
     gdbmi = GDBMI_Controller()
 
     @staticmethod
+    def new(window):
+        Controller.gdbmi.new(window)
+
+    @staticmethod
     def load_file(window):
         options = QFileDialog.Options()
         file_path, _ = QFileDialog.getOpenFileName(window, "Select File", "", Controller.FILE_TYPES, options=options)

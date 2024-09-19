@@ -78,7 +78,7 @@ class ButtonsAction:
     #Actions
     #File
     def __new():
-        print("Clicou em New no menu")
+        Controller.new(ButtonsAction.window)
 
     def __load():
         Controller.load_file(ButtonsAction.window)
