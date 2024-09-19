@@ -1,4 +1,4 @@
-from PySide6.QtGui import QTextCursor
+from PySide6.QtGui import QTextCursor, QTextCharFormat, QColor
 from PySide6.QtCore import Slot
 from PySide6.QtWidgets import QLabel, QPushButton
 from pygdbmi.gdbcontroller import GdbController
@@ -13,6 +13,22 @@ class GDBMI_Controller:
         self.conn = GdbController()
         self.last_line = None
         self.expressions_list = []
+
+    def new(self, window):
+        self.remove_all_th_buttons(window)
+        self.remove_all_expressions(window, True)
+        text = window.my_output_terminal
+        text.setText("")
+        self.remove_all_bkpts(window)
+
+        window.my_code_editor.setPlainText("")
+        cursor = window.my_code_editor.textCursor()
+        cursor.movePosition(QTextCursor.MoveOperation.Start)
+        cursor.select(QTextCursor.SelectionType.LineUnderCursor)
+        format = QTextCharFormat()
+        format.setBackground(QColor("transparent"))
+
+        self.conn.write("kill")
 
     def load_file(self):
         self.conn.write("-file-exec-and-symbols code")
@@ -101,10 +117,21 @@ class GDBMI_Controller:
 
 
     def inspect(gdbmi, window, text):
-        if text not in gdbmi.expressions_list:
-            gdbmi.expressions_list.append(text)
-        GDBMI_Controller.update_expressions_list(gdbmi, window)
-        window.statusbar.showMessage(f"Added expression {text} to inspector")
+        elements = text.split()
+
+        if len(elements) == 1:
+            if text not in gdbmi.expressions_list:
+                gdbmi.expressions_list.append(text)
+                GDBMI_Controller.update_expressions_list(gdbmi, window)
+                window.statusbar.showMessage(f"Added expression {text} to inspector")
+            window.statusbar.showMessage(f"Expression {text} are already in inspector")
+        elif len(elements) == 3 and elements[1] == "=" and elements[0] in gdbmi.expressions_list:
+            gdbmi.conn.write(f"set var {elements[0]} = {elements[2]}")
+            GDBMI_Controller.update_expressions_list(gdbmi, window)
+            window.statusbar.showMessage(f"Change the value of expression {elements[0]}")
+        else:
+            window.statusbar.showMessage("Wrong syntax, try again")
+        
 
     def update_expressions_list(gdbmi, window):
         GDBMI_Controller.remove_all_expressions(gdbmi, window)
@@ -149,6 +176,7 @@ class GDBMI_Controller:
         pprint(response, stream=buffer)
         terminal_text = buffer.getvalue()
         text.setText(terminal_text)
+        gdbmi.update_expressions_list(window)
 
 
     def __update_bkpt_line(gdbmi, window):

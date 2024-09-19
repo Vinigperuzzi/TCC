@@ -8,12 +8,14 @@ class ButtonsAction:
     @staticmethod
     def set_base_buttons(main_window):
         ButtonsAction.window = main_window
+        has_GDB = Controller.check_GDB(main_window)
         ButtonsAction.__connect_menu_bar()
         ButtonsAction.__connect_br_buttons()
         ButtonsAction.__connect_control_buttons()
         ButtonsAction.__connect_inspect_button()
         ButtonsAction.__add_shortcuts()
-        Controller.remove_all_th_buttons(main_window)
+        if has_GDB:
+            Controller.remove_all_th_buttons(main_window)
 
     def __connect_menu_bar():
         ButtonsAction.__connect_menu_file()
@@ -37,6 +39,8 @@ class ButtonsAction:
 
     def __connect_inspect_button():
         ButtonsAction.window.my_button_inspect.clicked.connect(ButtonsAction.__inspect)
+        ButtonsAction.window.my_change_value.clicked.connect(ButtonsAction.__inspect)
+        ButtonsAction.window.my_inspect_text.setPlaceholderText("expression, expression = value...")
 
     def __connect_menu_file():
         ButtonsAction.window.actionNew.triggered.connect(ButtonsAction.__new)
@@ -78,7 +82,7 @@ class ButtonsAction:
     #Actions
     #File
     def __new():
-        print("Clicou em New no menu")
+        Controller.new(ButtonsAction.window)
 
     def __load():
         Controller.load_file(ButtonsAction.window)
