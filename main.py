@@ -13,6 +13,6 @@ if __name__ == '__main__':
     mainWindow = MainWindow()
     mainWindow.setWindowTitle("PPP Debugger")
     ButtonsAction.set_base_buttons(mainWindow)
-    mainWindow.show()
-    #mainWindow.showMaximized()
+    #mainWindow.show()
+    mainWindow.showMaximized()
     app.exec()
