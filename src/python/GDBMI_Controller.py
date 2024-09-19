@@ -1,6 +1,6 @@
 from PySide6.QtGui import QTextCursor, QTextCharFormat, QColor
 from PySide6.QtCore import Slot
-from PySide6.QtWidgets import QLabel, QPushButton
+from PySide6.QtWidgets import QLabel, QPushButton, QMainWindow, QWidget, QTextBrowser, QVBoxLayout
 from pygdbmi.gdbcontroller import GdbController
 from src.python.View import View
 import json
@@ -168,6 +168,32 @@ class GDBMI_Controller:
             gdbmi.expressions_list.clear()
             window.statusbar.showMessage(f"all expressions removed")
 
+
+    def advanced_info(gdbmi, window, type):
+        if type == "assembly":
+            response = gdbmi.conn.write("disassemble")
+        else:
+            response = gdbmi.conn.write("info registers")
+
+        modal = QMainWindow(window)
+        if type == "assembly":
+            modal.setWindowTitle("Assembly Code")
+        else:
+            modal.setWindowTitle("Registers Information")
+        
+        modal.setGeometry(200, 300, 800, 400)
+
+        central_widget = QWidget(modal)
+        modal.setCentralWidget(central_widget)
+
+        info_text = QTextBrowser()
+        for res in response:
+            info_text.append(f"{res['payload']}\n")
+
+        layout = QVBoxLayout()
+        layout.addWidget(info_text)
+        central_widget.setLayout(layout)
+        modal.show()
 
     def terminal(gdbmi, window, text):
         response = gdbmi.conn.write(text)

@@ -134,10 +134,10 @@ class ButtonsAction:
 
     #view
     def __assembly():
-        print("Clicou em Assembly no menu")
+        Controller.assembly(ButtonsAction.window)
 
     def __registers():
-        print("Clicou em Registers no menu")
+        Controller.registers(ButtonsAction.window)
 
     #terminal
     def __terminal():
