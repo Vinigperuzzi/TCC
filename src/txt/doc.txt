@@ -1,0 +1,4 @@
+
+All project documentation can be found on GitHub, including how to execute, how to contribute and other information about the project and research.
+
+The repository can be found at the link: https://github.com/Vinigperuzzi/TCC

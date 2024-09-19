@@ -1,7 +1,8 @@
-from PySide6.QtWidgets import QMainWindow, QLineEdit, QFileDialog, QDialog, QPushButton, QVBoxLayout, QWidget, QLabel
+from PySide6.QtWidgets import QMainWindow, QLineEdit, QFileDialog, QDialog, QPushButton, QVBoxLayout, QWidget, QLabel, QTextBrowser
 from PySide6.QtCore import Slot
 from src.python.GDBMI_Controller import GDBMI_Controller
 import subprocess
+from pathlib import Path
 from src.gui.PPP_commands import Ui_Form as UI_Command
 from src.gui.PPP_controls import Ui_Form as UI_Control
 
@@ -243,3 +244,29 @@ class Controller:
 
         control = ControlWindow(window)
         control.show()
+
+    @staticmethod
+    def show_text_modal(window, type):
+        modal = QMainWindow(window)
+        if type == 'about':
+            modal.setWindowTitle("About")
+        else:
+            modal.setWindowTitle("Documentation")
+        modal.setGeometry(200, 300, 500, 300)
+
+        central_widget = QWidget(modal)
+        modal.setCentralWidget(central_widget)
+        project_root = Path(__file__).parent.parent
+        if type == 'about':
+            txt_path = project_root / 'txt' / 'about.txt'
+        else:
+            txt_path = project_root / 'txt' / 'doc.txt'
+        with open(txt_path, "r", encoding="utf-8") as file:
+                    file_content = file.read()
+        info_text = QTextBrowser()
+        info_text.setPlainText(file_content)
+
+        layout = QVBoxLayout()
+        layout.addWidget(info_text)
+        central_widget.setLayout(layout)
+        modal.show()

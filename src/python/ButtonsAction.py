@@ -147,10 +147,10 @@ class ButtonsAction:
         Controller.show_help_control(ButtonsAction.window)
     
     def __about():
-        print("Clicou em About no menu")
+        Controller.show_text_modal(ButtonsAction.window, 'about')
 
     def __documentation():
-        print("Clicou em Documentation no menu")
+        Controller.show_text_modal(ButtonsAction.window, 'documentation')
 
     def __inspect():
         Controller.inspect(ButtonsAction.window)

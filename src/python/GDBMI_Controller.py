@@ -52,7 +52,7 @@ class GDBMI_Controller:
             window.statusbar.showMessage("An error occurred while trying to remove breakpoints, maybe there's no builded file")
 
     def send_exec(gdbmi, window, param):
-        response = gdbmi.conn.write(f"-exec-{param}")
+        gdbmi.conn.write(f"-exec-{param}")
         GDBMI_Controller.__update_bkpt_line(gdbmi, window)
         GDBMI_Controller.update_expressions_list(gdbmi, window)
         window.statusbar.showMessage(f"Debugging moving on with {param}")
