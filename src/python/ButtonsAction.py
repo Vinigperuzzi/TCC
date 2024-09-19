@@ -137,7 +137,7 @@ class ButtonsAction:
 
     #terminal
     def __terminal():
-        Controller.terminal("nada")
+        Controller.terminal(ButtonsAction.window)
 
     #help
     def __commands():
@@ -154,7 +154,6 @@ class ButtonsAction:
 
     def __inspect():
         Controller.inspect(ButtonsAction.window)
-        #Controller.terminal(text)
 
     def __add_shortcuts():
         QShortcut(QKeySequence(Qt.Key_F1), ButtonsAction.window).activated.connect(ButtonsAction.__run)

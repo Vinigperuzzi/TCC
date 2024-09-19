@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QLineEdit, QFileDialog, QDialog, QPushButton, QVBoxLayout, QWidget, QLabel
+from PySide6.QtWidgets import QMainWindow, QLineEdit, QFileDialog, QDialog, QPushButton, QVBoxLayout, QWidget, QLabel
 from PySide6.QtCore import Slot
 from src.python.GDBMI_Controller import GDBMI_Controller
 import subprocess
@@ -82,7 +82,7 @@ class Controller:
 
     def __show_bp_man_modal(window):
         modal = QDialog()
-        modal.setWindowTitle("Inform the line or the name of function to insert breakpoint")
+        modal.setWindowTitle("Inform the breakpoint position")
         modal.setGeometry(400, 300, 300, 100)
 
         text_input = QLineEdit(modal)
@@ -178,8 +178,41 @@ class Controller:
         return inner
 
     @staticmethod
-    def terminal(text):
-        Controller.gdbmi.terminal(text)
+    def terminal(window):
+        Controller.__show_terminal_modal(window)
+
+    def __show_terminal_modal(window):
+        modal = QMainWindow(window)
+        modal.setWindowTitle("Terminal")
+
+        modal.setGeometry(400, 300, 300, 100)
+
+        central_widget = QWidget(modal)
+        modal.setCentralWidget(central_widget)
+
+        info_label = QLabel("Inform the command to be executed\n"
+                            "A list of commands can be found at help menu\n"
+                            "NOTE: please, consider that certain commands may brake the graphic interface because it overrides somes UI's features")
+
+        text_input = QLineEdit(modal)
+        text_input.setPlaceholderText("-thread-info, -thread-select <ID>, -stack-select-frame <FRAME_NUMBER>...")
+
+        submit_button = QPushButton("Submit", modal)
+        submit_button.clicked.connect(Controller.__submit_command(text_input, modal, window))
+
+        layout = QVBoxLayout()
+        layout.addWidget(info_label)
+        layout.addWidget(text_input)
+        layout.addWidget(submit_button)
+        central_widget.setLayout(layout)
+        modal.show()
+
+    @Slot()
+    def __submit_command(text, modal, window):
+        def inner():
+            Controller.gdbmi.terminal(window, text.text())
+            text.setText("")
+        return inner
 
     @staticmethod
     def remove_all_th_buttons(window):
