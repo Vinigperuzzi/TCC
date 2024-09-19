@@ -196,6 +196,14 @@ class Controller:
             modal.accept()
             Controller.gdbmi.remove_one_expression(window, text.text())
         return inner
+    
+    @staticmethod
+    def assembly(window):
+        Controller.gdbmi.advanced_info(window, "assembly")
+
+    def registers(window):
+        Controller.gdbmi.advanced_info(window, "registers")
+
 
     @staticmethod
     def terminal(window):
