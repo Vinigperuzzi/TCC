@@ -1,0 +1,16 @@
+This tool was developed as a course completion work for the Computer Science course by Vinícius Garcia Peruzzi under the guidance of professor dr. Rafael Burlamaqui Amaral.
+
+The name PPP Debugger comes from the acronym for Plush Puppy Parallel Debugger, an analogy to the debugging method called rubber duck debugger, where a rubber duck is used as a listener for the programmer who debugs the code, for me, in the absence of a debugger rubber, I always used a stuffed dog.
+
+This application is under the LGPL license, which means that, in addition to being open source, it can be used to improve itself, as long as it does not prevent others from accessing the same technology.
+
+Still, it is an open source tool, any and all contributions are welcome and will be treated with great care.
+
+This software aims to fill a gap, both in the market, with a desirable tool, especially at a time when parallel programming is gaining prominence, but also in academia, fueling the scarcity of scientific work on the topic.
+
+Follow me on GitHub, is Vinigperuzzi
+Visit my website on: https://vinigperuzzi.github.io/PersonalPage/
+
+Happy coding.
+
+Vinigperuzzi, the mage.

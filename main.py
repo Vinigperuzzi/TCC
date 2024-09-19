@@ -11,6 +11,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 if __name__ == '__main__':
     app = QApplication()
     mainWindow = MainWindow()
+    mainWindow.setWindowTitle("PPP Debugger")
     ButtonsAction.set_base_buttons(mainWindow)
     mainWindow.show()
     #mainWindow.showMaximized()

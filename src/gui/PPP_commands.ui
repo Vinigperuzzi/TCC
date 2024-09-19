@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1280</width>
+    <height>720</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+	background-color:rgb(15, 61, 83);
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1260</width>
+        <height>700</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QPushButton" name="closeButton">
+         <property name="text">
+          <string>Close Window</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTextBrowser" name="textBrowser">
+         <property name="html">
+          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -exec-run:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Starts program execution from the defined entry point (usually main). If the program is already running, it will be continued.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -exec-continue:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Continues program execution from where it is currently paused.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -exec-next:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Executes the next line of code, skipping over function calls.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -exec-step:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Executes the next line of code, but steps into called functions.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -exec-finish:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Continues execution until exiting the current function.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -exec-until LOCATION:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Continues execution until the program reaches a specific line or function (defined by LOCATION).&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -break-insert LOCATION:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Inserts a breakpoint at the specified location (can be a line, function, etc.).&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -break-delete BREAKPOINT_NUMBER:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Removes a breakpoint specified by its number.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -break-disable BREAKPOINT_NUMBER:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Disables a breakpoint without removing it.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -break-enable BREAKPOINT_NUMBER:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Reactivates a disabled breakpoint.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -break-list:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Lists all currently defined breakpoints.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -data-evaluate-expression EXPRESSION:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Evaluates the specified expression (e.g., the value of a variable) in the current context and returns the result.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -data-list-register-values FORMAT:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Lists the values of the processor's registers. The FORMAT can be binary, decimal, hexadecimal, etc.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -stack-list-arguments PRINT_VALUES START END:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Lists the function arguments in the stack trace. PRINT_VALUES can be 0 (do not show values) or 1 (show values). START and END specify the range of frames to display.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -thread-info:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Displays information about all threads currently running in the program.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -thread-select THREAD_ID:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Selects the execution thread specified by THREAD_ID.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -thread-list-ids:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Lists the IDs of all threads in the program.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -thread-exit THREAD_ID:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Forces the specified thread to exit.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -thread-stop:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Stops the execution of all threads.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -stack-info-depth:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Returns the depth of the stack, i.e., the number of frames in the stack trace.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -stack-list-frames:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Lists all frames (functions and call locations) in the current stack.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -stack-select-frame FRAME_NUMBER: &lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt;Selects a specific frame in the stack, allowing inspection of that frame's state.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -data-read-memory START_ADDR FORMAT WORD_SIZE NUM_WORDS:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Reads memory content from a specific address. FORMAT defines the output format (hexadecimal, decimal, etc.), and WORD_SIZE defines the size of the words to be read.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -data-write-memory START_ADDR VALUE FORMAT:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Writes a value to memory at a specific address.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -exec-interrupt:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Interrupts the program's execution (equivalent to Ctrl+C in the GDB terminal).&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -exec-kill:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Immediately terminates the debugged process.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -break-watch EXPRESSION:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Inserts a watchpoint, a conditional &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt;breakpoint triggered when the value of the specified expression changes.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -break-watch-access EXPRESSION:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Inserts a watchpoint triggered when the expression is accessed (read or written).&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -break-watch-delete WATCHPOINT_NUMBER:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Removes a specified watchpoint.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -break-condition BREAKPOINT_NUMBER EXPRESSION:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Defines a condition for a breakpoint. The breakpoint will only be triggered if the EXPRESSION evaluates to true.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -file-exec-and-symbols FILENAME:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Loads the executable file and its debug symbols.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -file-symbol-file FILENAME:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Loads only the debug symbols from a specific file.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -var-create NAME FRAME EXPR:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Creates a new watched variable based on the specified expression (EXPR) and returns an identifier.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -var-delete NAME:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Removes a watched variable specified by NAME.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -var-evaluate-expression NAME:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Evaluates the expression of a watched variable and returns the value.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -var-list-children NAME:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Lists the children (sub-variables) of a watched variable (useful for complex structures like arrays or structs).&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -inferior-info:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Displays information about the processes (inferiors) that GDB is controlling. This is useful when debugging programs with multiple processes.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -inferior-select ID:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Selects the process (inferior) with the specified ID for debugging.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -target-attach PROCESS_ID:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Attaches the debugger to a running process specified by its process ID.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -target-detach:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Detaches the debugger from the current process.&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -gdb-show VARIABLE:&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt; Displays the value of an internal GDB variable (e.g., print elements to show how many elements are displayed by default in arrays).&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#f44536;&quot;&gt;• -gdb-set VARIABLE VALUE: &lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#00fcd2;&quot;&gt;Sets the value of an internal GDB variable.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,7 +1,10 @@
-from PySide6.QtWidgets import QLineEdit, QFileDialog, QDialog, QPushButton, QVBoxLayout, QWidget, QLabel
+from PySide6.QtWidgets import QMainWindow, QLineEdit, QFileDialog, QDialog, QPushButton, QVBoxLayout, QWidget, QLabel, QTextBrowser
 from PySide6.QtCore import Slot
 from src.python.GDBMI_Controller import GDBMI_Controller
 import subprocess
+from pathlib import Path
+from src.gui.PPP_commands import Ui_Form as UI_Command
+from src.gui.PPP_controls import Ui_Form as UI_Control
 
 class Controller:
     FILE_TYPES = "*.c"
@@ -82,7 +85,7 @@ class Controller:
 
     def __show_bp_man_modal(window):
         modal = QDialog()
-        modal.setWindowTitle("Inform the line or the name of function to insert breakpoint")
+        modal.setWindowTitle("Inform the breakpoint position")
         modal.setGeometry(400, 300, 300, 100)
 
         text_input = QLineEdit(modal)
@@ -178,9 +181,92 @@ class Controller:
         return inner
 
     @staticmethod
-    def terminal(text):
-        Controller.gdbmi.terminal(text)
+    def terminal(window):
+        Controller.__show_terminal_modal(window)
+
+    def __show_terminal_modal(window):
+        modal = QMainWindow(window)
+        modal.setWindowTitle("Terminal")
+
+        modal.setGeometry(400, 300, 300, 100)
+
+        central_widget = QWidget(modal)
+        modal.setCentralWidget(central_widget)
+
+        info_label = QLabel("Inform the command to be executed\n"
+                            "A list of commands can be found at help menu\n"
+                            "NOTE: please, consider that certain commands may brake the graphic interface because it overrides somes UI's features")
+
+        text_input = QLineEdit(modal)
+        text_input.setPlaceholderText("-thread-info, -thread-select <ID>, -stack-select-frame <FRAME_NUMBER>...")
+
+        submit_button = QPushButton("Submit", modal)
+        submit_button.clicked.connect(Controller.__submit_command(text_input, modal, window))
+
+        layout = QVBoxLayout()
+        layout.addWidget(info_label)
+        layout.addWidget(text_input)
+        layout.addWidget(submit_button)
+        central_widget.setLayout(layout)
+        modal.show()
+
+    @Slot()
+    def __submit_command(text, modal, window):
+        def inner():
+            Controller.gdbmi.terminal(window, text.text())
+            text.setText("")
+        return inner
 
     @staticmethod
     def remove_all_th_buttons(window):
         Controller.gdbmi.remove_all_th_buttons(window)
+
+    @staticmethod
+    def show_help_command(window):
+        class CommandWindow(QWidget, UI_Command):
+            def __init__(self, parent=None):
+                super().__init__(parent)
+                self.setupUi(self)
+                self.setWindowTitle("GDBMI commands")
+                self.closeButton.clicked.connect(self.close)
+
+        command = CommandWindow(window)
+        command.show()
+
+    @staticmethod
+    def show_help_control(window):
+        class ControlWindow(QWidget, UI_Control):
+            def __init__(self, parent=None):
+                super().__init__(parent)
+                self.setupUi(self)
+                self.setWindowTitle("PPP Debugger controls")
+                self.closeButton.clicked.connect(self.close)
+
+        control = ControlWindow(window)
+        control.show()
+
+    @staticmethod
+    def show_text_modal(window, type):
+        modal = QMainWindow(window)
+        if type == 'about':
+            modal.setWindowTitle("About")
+        else:
+            modal.setWindowTitle("Documentation")
+        modal.setGeometry(200, 300, 500, 300)
+
+        central_widget = QWidget(modal)
+        modal.setCentralWidget(central_widget)
+        project_root = Path(__file__).parent.parent
+        if type == 'about':
+            txt_path = project_root / 'txt' / 'about.txt'
+        else:
+            txt_path = project_root / 'txt' / 'doc.txt'
+        with open(txt_path, "r", encoding="utf-8") as file:
+                    file_content = file.read()
+        info_text = QTextBrowser()
+        info_text.setPlainText(file_content)
+
+        layout = QVBoxLayout()
+        layout.addWidget(info_text)
+        central_widget.setLayout(layout)
+        modal.show()

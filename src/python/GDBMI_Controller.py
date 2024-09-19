@@ -5,6 +5,7 @@ from pygdbmi.gdbcontroller import GdbController
 from src.python.View import View
 import json
 from pprint import pprint
+from io import StringIO
 import subprocess
 
 class GDBMI_Controller:
@@ -51,7 +52,7 @@ class GDBMI_Controller:
             window.statusbar.showMessage("An error occurred while trying to remove breakpoints, maybe there's no builded file")
 
     def send_exec(gdbmi, window, param):
-        response = gdbmi.conn.write(f"-exec-{param}")
+        gdbmi.conn.write(f"-exec-{param}")
         GDBMI_Controller.__update_bkpt_line(gdbmi, window)
         GDBMI_Controller.update_expressions_list(gdbmi, window)
         window.statusbar.showMessage(f"Debugging moving on with {param}")
@@ -141,9 +142,13 @@ class GDBMI_Controller:
             window.statusbar.showMessage(f"all expressions removed")
 
 
-    def terminal(gdbmi, text=None):
+    def terminal(gdbmi, window, text):
         response = gdbmi.conn.write(text)
-        pprint(response)
+        text = window.my_output_terminal
+        buffer = StringIO()
+        pprint(response, stream=buffer)
+        terminal_text = buffer.getvalue()
+        text.setText(terminal_text)
 
 
     def __update_bkpt_line(gdbmi, window):
