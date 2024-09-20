@@ -32,7 +32,6 @@ class GDBMI_Controller:
 
     def load_file(self):
         self.conn.write("-file-exec-and-symbols code")
-        self.conn.write("-gdb-set inferior-tty out.txt")
 
 
     def set_breakpoint(self, window):
