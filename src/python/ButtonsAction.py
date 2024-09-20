@@ -12,6 +12,7 @@ class ButtonsAction:
         ButtonsAction.__connect_menu_bar()
         ButtonsAction.__connect_br_buttons()
         ButtonsAction.__connect_control_buttons()
+        ButtonsAction.__connect_controlling_buttons()
         ButtonsAction.__connect_inspect_button()
         ButtonsAction.__add_shortcuts()
         if has_GDB:
@@ -36,6 +37,10 @@ class ButtonsAction:
         ButtonsAction.window.my_button_continue.clicked.connect(ButtonsAction.__continue)
         ButtonsAction.window.my_button_step_in.clicked.connect(ButtonsAction.__step)
         ButtonsAction.window.my_button_finish.clicked.connect(ButtonsAction.__finish)
+
+    def __connect_controlling_buttons():
+        ButtonsAction.window.my_all_threads.clicked.connect(ButtonsAction.__all_threads)
+        ButtonsAction.window.my_selected_thread.clicked.connect(ButtonsAction.__selected_thread)
 
     def __connect_inspect_button():
         ButtonsAction.window.my_button_inspect.clicked.connect(ButtonsAction.__inspect)
@@ -158,6 +163,12 @@ class ButtonsAction:
 
     def __inspect():
         Controller.inspect(ButtonsAction.window)
+
+    def __all_threads():
+        Controller.manipulate_threads(ButtonsAction.window, "off")
+
+    def __selected_thread():
+        Controller.manipulate_threads(ButtonsAction.window, "on")
 
     def __add_shortcuts():
         QShortcut(QKeySequence(Qt.Key_F1), ButtonsAction.window).activated.connect(ButtonsAction.__run)

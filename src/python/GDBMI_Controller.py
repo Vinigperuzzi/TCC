@@ -32,6 +32,7 @@ class GDBMI_Controller:
 
     def load_file(self):
         self.conn.write("-file-exec-and-symbols code")
+        self.conn.write("-gdb-set inferior-tty out.txt")
 
 
     def set_breakpoint(self, window):
@@ -74,6 +75,18 @@ class GDBMI_Controller:
         window.statusbar.showMessage(f"Debugging moving on with {param}")
         current_thread = gdbmi.__update_threads(window)
         gdbmi.change_thread(current_thread, window)()
+
+    def manipulate_threads(gdbmi, window, lock):
+        label = window.my_controlling
+        status_bar = window.statusbar
+        if lock == 'on':
+            gdbmi.conn.write("set scheduler-locking on")
+            label.setText("Controlling: Selected")
+            status_bar.showMessage("Controlling only the selected thread with the execution commands")
+        else:
+            gdbmi.conn.write("set scheduler-locking off")
+            label.setText("Controlling: ALL")
+            status_bar.showMessage("Controlling all threads with the execution commands")
 
 
     def __update_threads(gdbmi, window):
