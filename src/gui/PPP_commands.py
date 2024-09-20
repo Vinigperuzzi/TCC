@@ -123,6 +123,9 @@ class Ui_Form(object):
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; color:#f44536;\">\u2022 -target-detach:</span><span style=\" font-size:12pt; color:#00fcd2;\"> Detaches the debugger from the current process.<br /></span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; color:#f44536;\">\u2022 -gdb-show VARIABLE:</span><span style=\" font-size:12pt; color:#00fcd2;\"> Displays the value of an internal GDB variable (e.g., print elements to show how many elements are displayed by default in arrays).<br /></span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; color:#f44536;\">\u2022 -"
-                        "gdb-set VARIABLE VALUE: </span><span style=\" font-size:12pt; color:#00fcd2;\">Sets the value of an internal GDB variable.</span></p></body></html>", None))
+                        "gdb-set VARIABLE VALUE: </span><span style=\" font-size:12pt; color:#00fcd2;\">Sets the value of an internal GDB variable.</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt; color:#00fcd2;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; color:#f44536;\">\u2022 NOTE: </span><span style=\" font-size:12pt; color:#00fcd2;\">Depending on the version of GDB, some commands may not be available.</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; color:#f44536;\">\u2022 NOTE 2: </span><span style=\" font-size:12pt; color:#00fcd2;\">All GDB commands work on the interface terminal as well.</span></p></body></html>", None))
     # retranslateUi
 

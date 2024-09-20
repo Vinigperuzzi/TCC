@@ -141,6 +141,10 @@ class Ui_MainWindow(object):
 "	border-color:rgb(0, 252, 210);\n"
 "    border-radius: 4px;\n"
 "	background-color:rgb(20, 81, 109);\n"
+"}\n"
+"\n"
+"QLabel {\n"
+"	color: rgb(70, 0, 5);\n"
 "}")
         self.frame_3.setFrameShape(QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QFrame.Raised)
@@ -229,9 +233,30 @@ class Ui_MainWindow(object):
         self.frame_7.setObjectName(u"frame_7")
         sizePolicy2.setHeightForWidth(self.frame_7.sizePolicy().hasHeightForWidth())
         self.frame_7.setSizePolicy(sizePolicy2)
-        self.frame_7.setStyleSheet(u"border-style: none;")
+        self.frame_7.setStyleSheet(u"")
         self.frame_7.setFrameShape(QFrame.StyledPanel)
         self.frame_7.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout = QHBoxLayout(self.frame_7)
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.my_all_threads = QPushButton(self.frame_7)
+        self.my_all_threads.setObjectName(u"my_all_threads")
+        sizePolicy3.setHeightForWidth(self.my_all_threads.sizePolicy().hasHeightForWidth())
+        self.my_all_threads.setSizePolicy(sizePolicy3)
+
+        self.horizontalLayout.addWidget(self.my_all_threads)
+
+        self.my_selected_thread = QPushButton(self.frame_7)
+        self.my_selected_thread.setObjectName(u"my_selected_thread")
+        sizePolicy3.setHeightForWidth(self.my_selected_thread.sizePolicy().hasHeightForWidth())
+        self.my_selected_thread.setSizePolicy(sizePolicy3)
+
+        self.horizontalLayout.addWidget(self.my_selected_thread)
+
+        self.my_controlling = QLabel(self.frame_7)
+        self.my_controlling.setObjectName(u"my_controlling")
+
+        self.horizontalLayout.addWidget(self.my_controlling)
+
 
         self.horizontalLayout_2.addWidget(self.frame_7)
 
@@ -693,7 +718,8 @@ class Ui_MainWindow(object):
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
-        self.statusbar.setStyleSheet(u"background-color:rgb(0, 252, 210);")
+        self.statusbar.setStyleSheet(u"background-color:rgb(0, 252, 210);\n"
+"color: black;")
         MainWindow.setStatusBar(self.statusbar)
 
         self.menubar.addAction(self.menuFile.menuAction())
@@ -764,6 +790,9 @@ class Ui_MainWindow(object):
         self.my_button_next.setText(QCoreApplication.translate("MainWindow", u"Next (F6)", None))
         self.my_button_step_in.setText(QCoreApplication.translate("MainWindow", u"Step_in (F7)", None))
         self.my_button_finish.setText(QCoreApplication.translate("MainWindow", u"Finish (F9)", None))
+        self.my_all_threads.setText(QCoreApplication.translate("MainWindow", u"All threads", None))
+        self.my_selected_thread.setText(QCoreApplication.translate("MainWindow", u"Only selected", None))
+        self.my_controlling.setText(QCoreApplication.translate("MainWindow", u"Controlling: ALL", None))
         self.my_output_terminal.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"

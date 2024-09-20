@@ -141,6 +141,10 @@ class Controller:
         Controller.gdbmi.send_exec(window, action)
 
     @staticmethod
+    def manipulate_threads(window, lock):
+        Controller.gdbmi.manipulate_threads(window, lock)
+
+    @staticmethod
     def inspect(window):
         field = window.my_inspect_text
         text = field.text()
