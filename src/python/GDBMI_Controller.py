@@ -72,20 +72,24 @@ class GDBMI_Controller:
         GDBMI_Controller.__update_bkpt_line(gdbmi, window)
         GDBMI_Controller.update_expressions_list(gdbmi, window)
         window.statusbar.showMessage(f"Debugging moving on with {param}")
-        gdbmi.__update_threads(window)
+        current_thread = gdbmi.__update_threads(window)
+        gdbmi.change_thread(current_thread, window)()
+
 
     def __update_threads(gdbmi, window):
         gdbmi.remove_all_th_buttons(window)
         response = gdbmi.conn.write("-thread-list-ids")
-        gdbmi.__update_threads_terminal(window, response)
+        current_thread = gdbmi.__update_threads_terminal(window, response)
         th_list = response[0]['payload']['thread-ids']['thread-id']
         gdbmi.add_th_buttons(window, th_list)
+        return current_thread
 
     def __update_threads_terminal(gdbmi, window, response):
         th_qtd = int(response[0]['payload']['number-of-threads'])
         current_thread = int(response[0]['payload']['current-thread-id'])
         text = window.my_output_terminal
         text.setText(f"Showing the scope of the thread number: {current_thread}\nNumber of current active threads: {th_qtd}")
+        return current_thread
         
     def remove_all_th_buttons(gdbmi, window):
         layout = window.my_thread_list.layout()
