@@ -13,6 +13,8 @@ class GDBMI_Controller:
         self.conn = GdbController()
         self.last_line = None
         self.expressions_list = []
+        self.last_thread = 1
+        self.lock = False
 
     def new(self, window):
         self.remove_all_th_buttons(window)
@@ -73,16 +75,21 @@ class GDBMI_Controller:
         GDBMI_Controller.update_expressions_list(gdbmi, window)
         window.statusbar.showMessage(f"Debugging moving on with {param}")
         current_thread = gdbmi.__update_threads(window)
-        gdbmi.change_thread(current_thread, window)()
+        if GDBMI_Controller.lock:
+            gdbmi.change_thread(gdbmi.last_thread, window)()
+        else:
+            gdbmi.change_thread(current_thread, window)()
 
     def manipulate_threads(gdbmi, window, lock):
         label = window.my_controlling
         status_bar = window.statusbar
         if lock == 'on':
+            GDBMI_Controller.lock = True
             gdbmi.conn.write("set scheduler-locking on")
             label.setText("Controlling: Selected")
             status_bar.showMessage("Controlling only the selected thread with the execution commands")
         else:
+            GDBMI_Controller.lock = False
             gdbmi.conn.write("set scheduler-locking off")
             label.setText("Controlling: ALL")
             status_bar.showMessage("Controlling all threads with the execution commands")
@@ -129,6 +136,7 @@ class GDBMI_Controller:
             self.__update_threads_terminal(window, response)
             self.update_expressions_list(window)
             self.__update_bkpt_line(window)
+            self.last_thread = thread_id
         return inner
 
 

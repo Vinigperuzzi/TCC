@@ -4,3 +4,5 @@ __pycache__/
 **/.UI_older_versions
 code.c
 code
+gdb.txt
+output.txt
