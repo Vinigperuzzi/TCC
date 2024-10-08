@@ -10,7 +10,7 @@ import subprocess
 
 class GDBMI_Controller:
     def __init__(self):
-        self.conn = GdbController()
+        self.conn = GdbController(raise_error_on_timeout=False)
         self.last_line = None
         self.expressions_list = []
         self.last_thread = 1
@@ -75,7 +75,7 @@ class GDBMI_Controller:
         GDBMI_Controller.update_expressions_list(gdbmi, window)
         window.statusbar.showMessage(f"Debugging moving on with {param}")
         current_thread = gdbmi.__update_threads(window)
-        if GDBMI_Controller.lock:
+        if gdbmi.lock:
             gdbmi.change_thread(gdbmi.last_thread, window)()
         else:
             gdbmi.change_thread(current_thread, window)()
@@ -231,7 +231,11 @@ class GDBMI_Controller:
 
     def __update_bkpt_line(gdbmi, window):
         response = gdbmi.conn.write("-stack-info-frame")
-        line = int(response[0]['payload']['frame']['line'])
+        for i in range (len(response)):
+            try:
+                line = int(response[i]['payload']['frame']['line'])
+            except:
+                continue
         View.return_line_pattern(window, gdbmi.last_line)
         View.update_breakpoints(window, GDBMI_Controller.__get_bkpts_list(gdbmi))
         gdbmi.last_line = line
