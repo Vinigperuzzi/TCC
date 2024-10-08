@@ -1,0 +1,113 @@
+=cmd-param-changed,param="logging enabled",value="on"
+^done
+(gdb) 
+&"set logging file file\n"
+=cmd-param-changed,param="logging file",value="file"
+^done
+(gdb) 
+&"show logging\n"
+~"logging debugredirect:  off: Debug output will go to both the screen and the log file.\n"
+~"logging enabled:  on: Logging is enabled.\n"
+~"logging file:  The current logfile is \"file\".\n"
+~"logging overwrite:  off: Logging appends to the log file.\n"
+~"logging redirect:  off: Output will go to both the screen and the log file.\n"
+^done
+(gdb) 
+=thread-group-started,id="i1",pid="156790"
+=thread-created,id="1",group-id="i1"
+=breakpoint-modified,bkpt={number="1",type="breakpoint",disp="keep",enabled="y",addr="0x0000555555555155",func="main",file="code.c",fullname="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c",line="4",thread-groups=["i1"],times="0",original-location="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c:4"}
+=library-loaded,id="/lib64/ld-linux-x86-64.so.2",target-name="/lib64/ld-linux-x86-64.so.2",host-name="/lib64/ld-linux-x86-64.so.2",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff7fc5090",to="0x00007ffff7fee315"}]
+^running
+*running,thread-id="all"
+(gdb) 
+=library-loaded,id="/lib/x86_64-linux-gnu/libc.so.6",target-name="/lib/x86_64-linux-gnu/libc.so.6",host-name="/lib/x86_64-linux-gnu/libc.so.6",symbols-loaded="0",thread-group="i1",ranges=[{from="0x00007ffff7dae700",to="0x00007ffff7f4093d"}]
+~"[Thread debugging using libthread_db enabled]\n"
+~"Using host libthread_db library \"/lib/x86_64-linux-gnu/libthread_db.so.1\".\n"
+=breakpoint-modified,bkpt={number="1",type="breakpoint",disp="keep",enabled="y",addr="0x0000555555555155",func="main",file="code.c",fullname="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c",line="4",thread-groups=["i1"],times="1",original-location="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c:4"}
+~"\n"
+~"Breakpoint 1, main () at code.c:4\n"
+~"4\t  int teste = 5;\n"
+*stopped,reason="breakpoint-hit",disp="keep",bkptno="1",frame={addr="0x0000555555555155",func="main",args=[],file="code.c",fullname="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c",line="4",arch="i386:x86-64"},thread-id="1",stopped-threads="all",core="8"
+(gdb) 
+^done,frame={level="0",addr="0x0000555555555155",func="main",file="code.c",fullname="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c",line="4",arch="i386:x86-64"}
+(gdb) 
+^done,BreakpointTable={nr_rows="1",nr_cols="6",hdr=[{width="7",alignment="-1",col_name="number",colhdr="Num"},{width="14",alignment="-1",col_name="type",colhdr="Type"},{width="4",alignment="-1",col_name="disp",colhdr="Disp"},{width="3",alignment="-1",col_name="enabled",colhdr="Enb"},{width="18",alignment="-1",col_name="addr",colhdr="Address"},{width="40",alignment="2",col_name="what",colhdr="What"}],body=[bkpt={number="1",type="breakpoint",disp="keep",enabled="y",addr="0x0000555555555155",func="main",file="code.c",fullname="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c",line="4",thread-groups=["i1"],times="1",original-location="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c:4"}]}
+(gdb) 
+^done,BreakpointTable={nr_rows="1",nr_cols="6",hdr=[{width="7",alignment="-1",col_name="number",colhdr="Num"},{width="14",alignment="-1",col_name="type",colhdr="Type"},{width="4",alignment="-1",col_name="disp",colhdr="Disp"},{width="3",alignment="-1",col_name="enabled",colhdr="Enb"},{width="18",alignment="-1",col_name="addr",colhdr="Address"},{width="40",alignment="2",col_name="what",colhdr="What"}],body=[bkpt={number="1",type="breakpoint",disp="keep",enabled="y",addr="0x0000555555555155",func="main",file="code.c",fullname="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c",line="4",thread-groups=["i1"],times="1",original-location="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c:4"}]}
+(gdb) 
+^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+^done,new-thread-id="1",frame={level="0",addr="0x0000555555555155",func="main",args=[],file="code.c",fullname="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c",line="4",arch="i386:x86-64"}
+(gdb) 
+^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+^done,frame={level="0",addr="0x0000555555555155",func="main",file="code.c",fullname="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c",line="4",arch="i386:x86-64"}
+(gdb) 
+^done,BreakpointTable={nr_rows="1",nr_cols="6",hdr=[{width="7",alignment="-1",col_name="number",colhdr="Num"},{width="14",alignment="-1",col_name="type",colhdr="Type"},{width="4",alignment="-1",col_name="disp",colhdr="Disp"},{width="3",alignment="-1",col_name="enabled",colhdr="Enb"},{width="18",alignment="-1",col_name="addr",colhdr="Address"},{width="40",alignment="2",col_name="what",colhdr="What"}],body=[bkpt={number="1",type="breakpoint",disp="keep",enabled="y",addr="0x0000555555555155",func="main",file="code.c",fullname="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c",line="4",thread-groups=["i1"],times="1",original-location="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c:4"}]}
+(gdb) 
+^done,BreakpointTable={nr_rows="1",nr_cols="6",hdr=[{width="7",alignment="-1",col_name="number",colhdr="Num"},{width="14",alignment="-1",col_name="type",colhdr="Type"},{width="4",alignment="-1",col_name="disp",colhdr="Disp"},{width="3",alignment="-1",col_name="enabled",colhdr="Enb"},{width="18",alignment="-1",col_name="addr",colhdr="Address"},{width="40",alignment="2",col_name="what",colhdr="What"}],body=[bkpt={number="1",type="breakpoint",disp="keep",enabled="y",addr="0x0000555555555155",func="main",file="code.c",fullname="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c",line="4",thread-groups=["i1"],times="1",original-location="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c:4"}]}
+(gdb) 
+^running
+*running,thread-id="all"
+(gdb) 
+*stopped,reason="end-stepping-range",frame={addr="0x000055555555515c",func="main",args=[],file="code.c",fullname="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c",line="5",arch="i386:x86-64"},thread-id="1",stopped-threads="all",core="8"
+(gdb) 
+^done,frame={level="0",addr="0x000055555555515c",func="main",file="code.c",fullname="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c",line="5",arch="i386:x86-64"}
+(gdb) 
+^done,BreakpointTable={nr_rows="1",nr_cols="6",hdr=[{width="7",alignment="-1",col_name="number",colhdr="Num"},{width="14",alignment="-1",col_name="type",colhdr="Type"},{width="4",alignment="-1",col_name="disp",colhdr="Disp"},{width="3",alignment="-1",col_name="enabled",colhdr="Enb"},{width="18",alignment="-1",col_name="addr",colhdr="Address"},{width="40",alignment="2",col_name="what",colhdr="What"}],body=[bkpt={number="1",type="breakpoint",disp="keep",enabled="y",addr="0x0000555555555155",func="main",file="code.c",fullname="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c",line="4",thread-groups=["i1"],times="1",original-location="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c:4"}]}
+(gdb) 
+^done,BreakpointTable={nr_rows="1",nr_cols="6",hdr=[{width="7",alignment="-1",col_name="number",colhdr="Num"},{width="14",alignment="-1",col_name="type",colhdr="Type"},{width="4",alignment="-1",col_name="disp",colhdr="Disp"},{width="3",alignment="-1",col_name="enabled",colhdr="Enb"},{width="18",alignment="-1",col_name="addr",colhdr="Address"},{width="40",alignment="2",col_name="what",colhdr="What"}],body=[bkpt={number="1",type="breakpoint",disp="keep",enabled="y",addr="0x0000555555555155",func="main",file="code.c",fullname="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c",line="4",thread-groups=["i1"],times="1",original-location="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c:4"}]}
+(gdb) 
+^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+^done,new-thread-id="1",frame={level="0",addr="0x000055555555515c",func="main",args=[],file="code.c",fullname="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c",line="5",arch="i386:x86-64"}
+(gdb) 
+^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+^done,frame={level="0",addr="0x000055555555515c",func="main",file="code.c",fullname="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c",line="5",arch="i386:x86-64"}
+(gdb) 
+^done,BreakpointTable={nr_rows="1",nr_cols="6",hdr=[{width="7",alignment="-1",col_name="number",colhdr="Num"},{width="14",alignment="-1",col_name="type",colhdr="Type"},{width="4",alignment="-1",col_name="disp",colhdr="Disp"},{width="3",alignment="-1",col_name="enabled",colhdr="Enb"},{width="18",alignment="-1",col_name="addr",colhdr="Address"},{width="40",alignment="2",col_name="what",colhdr="What"}],body=[bkpt={number="1",type="breakpoint",disp="keep",enabled="y",addr="0x0000555555555155",func="main",file="code.c",fullname="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c",line="4",thread-groups=["i1"],times="1",original-location="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c:4"}]}
+(gdb) 
+^done,BreakpointTable={nr_rows="1",nr_cols="6",hdr=[{width="7",alignment="-1",col_name="number",colhdr="Num"},{width="14",alignment="-1",col_name="type",colhdr="Type"},{width="4",alignment="-1",col_name="disp",colhdr="Disp"},{width="3",alignment="-1",col_name="enabled",colhdr="Enb"},{width="18",alignment="-1",col_name="addr",colhdr="Address"},{width="40",alignment="2",col_name="what",colhdr="What"}],body=[bkpt={number="1",type="breakpoint",disp="keep",enabled="y",addr="0x0000555555555155",func="main",file="code.c",fullname="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c",line="4",thread-groups=["i1"],times="1",original-location="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c:4"}]}
+(gdb) 
+&"show logging\n"
+~"logging debugredirect:  off: Debug output will go to both the screen and the log file.\n"
+~"logging enabled:  on: Logging is enabled.\n"
+~"logging file:  The current logfile is \"file\".\n"
+~"logging overwrite:  off: Logging appends to the log file.\n"
+~"logging redirect:  off: Output will go to both the screen and the log file.\n"
+^done
+(gdb) 
+^running
+*running,thread-id="all"
+(gdb) 
+*stopped,reason="end-stepping-range",frame={addr="0x0000555555555175",func="main",args=[],file="code.c",fullname="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c",line="6",arch="i386:x86-64"},thread-id="1",stopped-threads="all",core="8"
+(gdb) 
+^done,frame={level="0",addr="0x0000555555555175",func="main",file="code.c",fullname="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c",line="6",arch="i386:x86-64"}
+(gdb) 
+^done,BreakpointTable={nr_rows="1",nr_cols="6",hdr=[{width="7",alignment="-1",col_name="number",colhdr="Num"},{width="14",alignment="-1",col_name="type",colhdr="Type"},{width="4",alignment="-1",col_name="disp",colhdr="Disp"},{width="3",alignment="-1",col_name="enabled",colhdr="Enb"},{width="18",alignment="-1",col_name="addr",colhdr="Address"},{width="40",alignment="2",col_name="what",colhdr="What"}],body=[bkpt={number="1",type="breakpoint",disp="keep",enabled="y",addr="0x0000555555555155",func="main",file="code.c",fullname="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c",line="4",thread-groups=["i1"],times="1",original-location="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c:4"}]}
+(gdb) 
+^done,BreakpointTable={nr_rows="1",nr_cols="6",hdr=[{width="7",alignment="-1",col_name="number",colhdr="Num"},{width="14",alignment="-1",col_name="type",colhdr="Type"},{width="4",alignment="-1",col_name="disp",colhdr="Disp"},{width="3",alignment="-1",col_name="enabled",colhdr="Enb"},{width="18",alignment="-1",col_name="addr",colhdr="Address"},{width="40",alignment="2",col_name="what",colhdr="What"}],body=[bkpt={number="1",type="breakpoint",disp="keep",enabled="y",addr="0x0000555555555155",func="main",file="code.c",fullname="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c",line="4",thread-groups=["i1"],times="1",original-location="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c:4"}]}
+(gdb) 
+^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+^done,new-thread-id="1",frame={level="0",addr="0x0000555555555175",func="main",args=[],file="code.c",fullname="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c",line="6",arch="i386:x86-64"}
+(gdb) 
+^done,thread-ids={thread-id="1"},current-thread-id="1",number-of-threads="1"
+(gdb) 
+^done,frame={level="0",addr="0x0000555555555175",func="main",file="code.c",fullname="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c",line="6",arch="i386:x86-64"}
+(gdb) 
+^done,BreakpointTable={nr_rows="1",nr_cols="6",hdr=[{width="7",alignment="-1",col_name="number",colhdr="Num"},{width="14",alignment="-1",col_name="type",colhdr="Type"},{width="4",alignment="-1",col_name="disp",colhdr="Disp"},{width="3",alignment="-1",col_name="enabled",colhdr="Enb"},{width="18",alignment="-1",col_name="addr",colhdr="Address"},{width="40",alignment="2",col_name="what",colhdr="What"}],body=[bkpt={number="1",type="breakpoint",disp="keep",enabled="y",addr="0x0000555555555155",func="main",file="code.c",fullname="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c",line="4",thread-groups=["i1"],times="1",original-location="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c:4"}]}
+(gdb) 
+^done,BreakpointTable={nr_rows="1",nr_cols="6",hdr=[{width="7",alignment="-1",col_name="number",colhdr="Num"},{width="14",alignment="-1",col_name="type",colhdr="Type"},{width="4",alignment="-1",col_name="disp",colhdr="Disp"},{width="3",alignment="-1",col_name="enabled",colhdr="Enb"},{width="18",alignment="-1",col_name="addr",colhdr="Address"},{width="40",alignment="2",col_name="what",colhdr="What"}],body=[bkpt={number="1",type="breakpoint",disp="keep",enabled="y",addr="0x0000555555555155",func="main",file="code.c",fullname="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c",line="4",thread-groups=["i1"],times="1",original-location="/home/vinigperuzzi/vini-desktop/tcc/TCC/code.c:4"}]}
+(gdb) 
+&"show logging\n"
+~"logging debugredirect:  off: Debug output will go to both the screen and the log file.\n"
+~"logging enabled:  on: Logging is enabled.\n"
+~"logging file:  The current logfile is \"file\".\n"
+~"logging overwrite:  off: Logging appends to the log file.\n"
+~"logging redirect:  off: Output will go to both the screen and the log file.\n"
+^done
+(gdb) 
+=thread-exited,id="1",group-id="i1"
+=thread-group-exited,id="i1"
