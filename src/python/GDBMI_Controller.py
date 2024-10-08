@@ -75,7 +75,7 @@ class GDBMI_Controller:
         GDBMI_Controller.update_expressions_list(gdbmi, window)
         window.statusbar.showMessage(f"Debugging moving on with {param}")
         current_thread = gdbmi.__update_threads(window)
-        if GDBMI_Controller.lock:
+        if gdbmi.lock:
             gdbmi.change_thread(gdbmi.last_thread, window)()
         else:
             gdbmi.change_thread(current_thread, window)()
@@ -84,12 +84,12 @@ class GDBMI_Controller:
         label = window.my_controlling
         status_bar = window.statusbar
         if lock == 'on':
-            GDBMI_Controller.lock = True
+            gdbmi.lock = True
             gdbmi.conn.write("set scheduler-locking on")
             label.setText("Controlling: Selected")
             status_bar.showMessage("Controlling only the selected thread with the execution commands")
         else:
-            GDBMI_Controller.lock = False
+            gdbmi.lock = False
             gdbmi.conn.write("set scheduler-locking off")
             label.setText("Controlling: ALL")
             status_bar.showMessage("Controlling all threads with the execution commands")
@@ -231,7 +231,12 @@ class GDBMI_Controller:
 
     def __update_bkpt_line(gdbmi, window):
         response = gdbmi.conn.write("-stack-info-frame")
-        line = int(response[0]['payload']['frame']['line'])
+        for i in range(len(response)):
+            try:
+                line = int(response[0]['payload']['frame']['line'])
+            except:
+                line = 1
+                continue
         View.return_line_pattern(window, gdbmi.last_line)
         View.update_breakpoints(window, GDBMI_Controller.__get_bkpts_list(gdbmi))
         gdbmi.last_line = line
